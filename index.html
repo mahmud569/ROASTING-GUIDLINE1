@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دليل تشغيل آلات تحميص القهوة — MILL CITY &amp; ROASTWEEL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF3E7; --surface:#FFFFFF; --surface-2:#FBF6EF; --text:#2B1B12; --muted:#7A5C43;
+  --navy:#1F3864; --navy-2:#16284a; --gold:#C9A227; --roast-dark:#3E2723; --roast:#6F4E37;
+  --cream:#F3E4D0; --flame:#E4572E; --fan:#2E86AB; --green:#3F5E3A; --red:#9C2B2B;
+  --border:#E3D2BC; --shadow:0 8px 22px rgba(59,38,26,.12); --radius:16px;
+  --font: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#181210; --surface:#231a15; --surface-2:#2a1f18; --text:#F1E4D6; --muted:#C9A98A;
+    --navy:#3a5a94; --navy-2:#2a4472; --gold:#e0b93a; --roast-dark:#2a1e18; --roast:#9c7a5c;
+    --cream:#3a2c20; --border:#3d2e22; --shadow:0 8px 22px rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#181210; --surface:#231a15; --surface-2:#2a1f18; --text:#F1E4D6; --muted:#C9A98A;
+  --navy:#3a5a94; --navy-2:#2a4472; --gold:#e0b93a; --roast-dark:#2a1e18; --roast:#9c7a5c;
+  --cream:#3a2c20; --border:#3d2e22; --shadow:0 8px 22px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.85;direction:rtl;}
+.ic svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;display:block;}
+img{max-width:100%;display:block;border-radius:12px;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 55%,var(--roast-dark) 100%);color:#fff;padding:56px 20px 44px;position:relative;overflow:hidden;text-align:center;}
+.hero::before{content:"☕";position:absolute;font-size:220px;opacity:.06;top:-60px;left:-30px;}
+.hero::after{content:"☕";position:absolute;font-size:180px;opacity:.06;bottom:-70px;right:-20px;}
+.hero h1{font-size:clamp(24px,4vw,38px);margin:0 0 10px;font-weight:800;position:relative;}
+.hero p{margin:0 auto;max-width:720px;color:#e8dcc8;font-size:16px;position:relative;}
+.hero .badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px;position:relative;}
+.hero .badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:6px 14px;border-radius:999px;font-size:13px;backdrop-filter:blur(2px);}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:var(--surface);border-bottom:1px solid var(--border);box-shadow:var(--shadow);}
+.nav-inner{display:flex;gap:6px;overflow-x:auto;padding:10px 14px;max-width:1100px;margin:0 auto;scrollbar-width:thin;}
+.nav a{white-space:nowrap;text-decoration:none;color:var(--muted);font-weight:700;font-size:13.5px;padding:8px 14px;border-radius:999px;transition:.2s;border:1px solid transparent;}
+.nav a:hover{background:var(--cream);color:var(--roast-dark);}
+.nav a.active{background:var(--navy);color:#fff;}
+
+.wrap{max-width:1100px;margin:0 auto;padding:0 18px;}
+section.block{padding:46px 0;border-bottom:1px dashed var(--border);}
+section.block:last-of-type{border-bottom:none;}
+.sec-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+.sec-head .ic svg{width:30px;height:30px;color:var(--gold);stroke-width:1.6;}
+.sec-head h2{font-size:clamp(20px,3vw,28px);margin:0;color:var(--roast-dark);}
+.sec-sub{color:var(--muted);margin:6px 0 26px;font-size:15px;max-width:760px;}
+
+/* CARDS GRID */
+.grid{display:grid;gap:16px;}
+.grid.cols-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+.grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+.grid.cols-4{grid-template-columns:repeat(auto-fit,minmax(190px,1fr));}
+
+.info-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow);}
+.info-panel h3{margin:0 0 10px;color:var(--roast-dark);font-size:17px;display:flex;align-items:center;gap:8px;}
+.info-panel h3 .ic svg{color:var(--flame);width:22px;height:22px;}
+.photo-frame{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:10px;box-shadow:var(--shadow);}
+.photo-frame figcaption{text-align:center;color:var(--muted);font-size:13px;margin-top:8px;padding-bottom:2px;}
+
+/* CONTROL CARDS */
+.control-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);cursor:pointer;overflow:hidden;transition:.2s;}
+.control-card:hover{transform:translateY(-2px);}
+.cc-head{display:flex;align-items:center;gap:10px;padding:14px 16px;}
+.cc-icon svg{width:26px;height:26px;flex:none;}
+.tone-flame .cc-icon{color:var(--flame);} .tone-fan .cc-icon{color:var(--fan);} .tone-brown .cc-icon{color:var(--roast);}
+.tone-green .cc-icon{color:var(--green);} .tone-gold .cc-icon{color:var(--gold);} .tone-red .cc-icon{color:var(--red);}
+.cc-titles{display:flex;flex-direction:column;flex:1;min-width:0;}
+.cc-en{font-size:11.5px;letter-spacing:.5px;color:var(--muted);font-weight:700;direction:ltr;text-align:right;}
+.cc-ar{font-size:15px;font-weight:800;color:var(--text);}
+.cc-chevron{color:var(--muted);transition:.25s;}
+.control-card.open .cc-chevron{transform:rotate(180deg);}
+.cc-body{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 16px;}
+.control-card.open .cc-body{max-height:400px;padding-bottom:16px;}
+.cc-body p{margin:0 0 8px;color:var(--text);font-size:14.5px;}
+.cc-setting{display:flex;justify-content:space-between;align-items:center;background:var(--cream);border-radius:10px;padding:8px 12px;margin-top:6px;}
+.cc-setting-label{font-size:12.5px;color:var(--muted);font-weight:700;}
+.cc-setting-val{font-weight:800;color:var(--roast-dark);font-size:15px;direction:ltr;}
+.cc-extra{background:var(--surface-2);border-radius:10px;padding:8px 12px;font-size:13px;color:var(--muted);margin-top:8px;border-right:3px solid var(--gold);}
+
+/* ACCORDION (stages / profile) */
+.acc-item{background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);margin-bottom:12px;overflow:hidden;}
+.acc-head{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;}
+.acc-num{background:var(--navy);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex:none;}
+.tone-flame .acc-num{background:var(--flame);} .tone-green .acc-num{background:var(--green);} .tone-red .acc-num{background:var(--red);}
+.acc-icon svg{width:22px;height:22px;color:var(--roast);flex:none;}
+.acc-title{flex:1;font-weight:800;font-size:15.5px;}
+.acc-chevron{color:var(--muted);transition:.25s;}
+.acc-item.open .acc-chevron{transform:rotate(180deg);}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.acc-item.open .acc-body{max-height:600px;}
+.acc-inner{padding:0 18px 18px 18px;color:var(--text);font-size:14.5px;}
+.acc-inner p{margin:0 0 8px;}
+.acc-inner ul{margin:6px 0;padding-inline-start:20px;}
+.acc-inner .tag{display:inline-block;background:var(--cream);color:var(--roast-dark);border-radius:999px;padding:3px 10px;font-size:12.5px;font-weight:700;margin:2px 4px 2px 0;}
+
+/* TABLE */
+table.cmp{width:100%;border-collapse:collapse;background:var(--surface);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);}
+table.cmp th, table.cmp td{padding:12px 14px;text-align:center;border-bottom:1px solid var(--border);font-size:14px;}
+table.cmp th{background:var(--navy);color:#fff;font-size:13.5px;}
+table.cmp tr:nth-child(even){background:var(--surface-2);}
+table.cmp td:first-child, table.cmp th:first-child{text-align:right;font-weight:700;color:var(--roast-dark);}
+
+/* SETTINGS QUICK TABLE */
+.quick-table{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:18px 0;}
+.quick-cell{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px;text-align:center;box-shadow:var(--shadow);}
+.quick-cell .ic svg{width:24px;height:24px;color:var(--flame);margin:0 auto 6px;}
+.quick-cell .qc-label{font-size:12.5px;color:var(--muted);font-weight:700;}
+.quick-cell .qc-val{font-size:20px;font-weight:900;color:var(--roast-dark);direction:ltr;}
+
+/* GLOSSARY FLIP CARDS */
+.flip-card{background:transparent;perspective:1000px;height:120px;cursor:pointer;}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d;}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg);}
+.flip-front,.flip-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;text-align:center;box-shadow:var(--shadow);border:1px solid var(--border);}
+.flip-front{background:var(--navy);color:#fff;}
+.flip-front span{font-weight:800;font-size:15px;direction:ltr;}
+.flip-front small{opacity:.75;margin-top:6px;font-size:11px;}
+.flip-back{background:var(--gold);color:var(--roast-dark);transform:rotateY(180deg);font-size:13px;font-weight:700;}
+
+/* CALLOUTS */
+.callout{border-radius:14px;padding:14px 16px;margin:14px 0;display:flex;gap:10px;align-items:flex-start;font-size:14.5px;}
+.callout.warn{background:#fdeee7;border:1px solid #f0c2a8;color:#7a3418;}
+:root[data-theme="dark"] .callout.warn, @media (prefers-color-scheme:dark){.callout.warn{background:#3a241a;border-color:#5a3a24;color:#f0c2a8;}}
+.callout.tip{background:#eef3ea;border:1px solid #c7dab8;color:#3a5230;}
+.callout .ic svg{width:20px;height:20px;flex:none;margin-top:2px;}
+.callout.warn .ic{color:#c2571f;} .callout.tip .ic{color:var(--green);}
+
+/* MD500 device */
+.device-readout{background:#12100e;border-radius:14px;padding:16px;color:#f4d13a;font-family:monospace;box-shadow:var(--shadow);}
+.device-readout .row{display:flex;justify-content:space-between;border-bottom:1px dashed #333;padding:6px 0;font-size:14px;}
+.device-readout .row:last-child{border-bottom:none;}
+.device-readout .row b{color:#fff;}
+
+/* TIMELINE STRIP */
+.strip{display:flex;overflow-x:auto;gap:0;margin:22px 0;padding-bottom:6px;}
+.strip .seg{flex:1;min-width:140px;text-align:center;padding:14px 10px;position:relative;color:#fff;font-weight:800;font-size:13px;}
+.strip .seg:not(:last-child)::after{content:"";position:absolute;top:50%;left:-2px;width:0;height:0;border-top:22px solid transparent;border-bottom:22px solid transparent;border-left:16px solid var(--nextcolor,var(--bg));transform:translateY(-50%);z-index:2;}
+.strip .seg span{display:block;font-size:11px;font-weight:600;opacity:.85;margin-top:3px;}
+
+footer.pagefoot{text-align:center;color:var(--muted);font-size:13px;padding:30px 20px 50px;}
+
+.two-col{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:start;}
+@media (max-width:820px){.two-col{grid-template-columns:1fr;}}
+
+.legend-note{font-size:12.5px;color:var(--muted);background:var(--surface-2);border-radius:10px;padding:8px 12px;margin-top:10px;border-right:3px solid var(--roast);}
+
+/* SAFETY */
+.safety-banner{background:repeating-linear-gradient(135deg,#b23a2e,#b23a2e 14px,#9c2b2b 14px,#9c2b2b 28px);color:#fff;border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:12px;font-weight:800;font-size:14.5px;margin-bottom:20px;box-shadow:var(--shadow);}
+.safety-banner .ic svg{width:26px;height:26px;color:#fff;}
+.safety-card{background:var(--surface);border:1px solid #eecfc7;border-right:5px solid var(--red);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);}
+.safety-card .sf-emoji{font-size:26px;display:block;margin-bottom:8px;}
+.safety-card h4{margin:0 0 6px;color:var(--red);font-size:15.5px;}
+.safety-card p{margin:0;font-size:13.5px;color:var(--text);}
+.safety-card.ref{border-right-color:var(--gold);}
+.safety-card.ref h4{color:#8a6d1f;}
+
+/* ROASTER ILLUSTRATION */
+.illus-frame{background:linear-gradient(180deg,var(--surface) 0%,var(--surface-2) 100%);border:1px solid var(--border);border-radius:var(--radius);padding:18px 10px 10px;box-shadow:var(--shadow);text-align:center;}
+.roaster-svg{width:100%;max-width:300px;height:auto;}
+.illus-caption{text-align:center;color:var(--muted);font-size:13px;margin-top:6px;padding-bottom:6px;}
+.illus-duo{display:flex;gap:18px;justify-content:center;align-items:flex-end;flex-wrap:wrap;}
+.illus-duo .illus-single{flex:1;min-width:180px;max-width:260px;}
+.illus-duo .roaster-svg{max-width:220px;}
+
+/* CONTROL PANEL MOCKUP (3D skeuomorphic) */
+.mill-panel{background:linear-gradient(135deg,#e4e8eb 0%,#b9c0c6 45%,#dfe3e6 100%);border:3px solid #2c3540;border-radius:18px;padding:16px;box-shadow:0 14px 28px rgba(20,15,10,.28), inset 0 0 0 2px rgba(255,255,255,.5);position:relative;}
+.mp-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+.mp-chip{display:flex;align-items:center;gap:6px;background:#232b33;color:#cfd6db;border-radius:8px;padding:6px 10px;font-size:11px;font-weight:700;direction:ltr;}
+.mp-chip .ic svg{width:16px;height:16px;}
+.mp-alarm{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:800;color:#3a2c20;direction:ltr;}
+.mp-alarm-dome{width:20px;height:20px;border-radius:50%;background:radial-gradient(circle at 35% 25%,#ff8a8a,#c0392b 70%,#7a1f17);box-shadow:0 0 10px #e6392980, inset 0 2px 3px rgba(255,255,255,.6);}
+.mp-displays{display:flex;gap:10px;margin-bottom:10px;}
+.mp-disp-box{flex:1;background:#1a2025;border-radius:8px;padding:8px 10px;display:flex;flex-direction:column;align-items:center;gap:4px;box-shadow:inset 0 2px 5px rgba(0,0,0,.6);}
+.mp-disp-box.wide{padding:10px;}
+.lcd-screen{font-family:'Courier New',monospace;font-weight:800;font-size:17px;letter-spacing:1px;direction:ltr;display:inline-block;text-align:center;}
+.mp-unit{font-size:9px;color:#9fb0a8;margin-inline-start:3px;}
+.mp-name{font-size:9.5px;color:#dfe3e6;font-weight:700;direction:ltr;letter-spacing:.4px;text-align:center;}
+.mp-disp-box .mp-name{color:#aeb8bf;}
+.mp-row{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:8px;background:rgba(255,255,255,.35);border-radius:10px;padding:6px 10px;margin-bottom:8px;}
+.mp-updown{display:flex;gap:5px;}
+.mp-arrow{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.35), inset 0 1px 1px rgba(255,255,255,.5);}
+.mp-arrow.up{background:radial-gradient(circle at 35% 30%,#8CFCA6,#1e8a45 70%,#0b4c26);}
+.mp-arrow.down{background:radial-gradient(circle at 35% 30%,#ff9d9d,#c0392b 70%,#7a1f17);}
+.mp-lcd{background:#1a2025;border-radius:6px;padding:4px 10px;display:flex;align-items:baseline;justify-content:center;box-shadow:inset 0 2px 4px rgba(0,0,0,.6);}
+.mp-row .mp-name{text-align:right;color:#2b3138;font-size:10.5px;}
+.mp-buttons-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0;}
+.mp-buttons-grid.two{grid-template-columns:repeat(2,1fr);max-width:220px;margin-inline:auto;}
+.btn3d-wrap{display:flex;flex-direction:column;align-items:center;gap:5px;}
+.btn3d{width:40px;height:40px;border-radius:50%;box-shadow:0 5px 8px rgba(0,0,0,.35), inset 0 2px 3px rgba(255,255,255,.55), inset 0 -3px 5px rgba(0,0,0,.25);}
+.btn3d-label{font-size:9px;font-weight:800;color:#2b3138;text-align:center;line-height:1.2;direction:ltr;}
+.mp-bottombar{display:flex;justify-content:space-between;align-items:center;margin-top:6px;}
+.mp-estop,.mp-power{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:9px;font-weight:800;color:#2b3138;direction:ltr;}
+.mp-estop-dome{width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 35% 25%,#ff8a8a,#a4231a 65%,#5c130d);box-shadow:0 6px 10px rgba(0,0,0,.4), inset 0 3px 4px rgba(255,255,255,.5);border:3px solid #e8e8e8;}
+.mp-power-toggle{display:flex;background:#232b33;border-radius:20px;padding:3px;gap:3px;}
+.mp-power-toggle span{font-size:8px;color:#9aa3ab;padding:3px 8px;border-radius:16px;font-weight:800;}
+.mp-power-toggle span:last-child{background:#3ddc63;color:#0b2e15;}
+.roastweel-panel{max-width:420px;margin:0 auto;}
+.rp-toggles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0;}
+.rp-toggle-row{display:flex;flex-direction:column;align-items:center;gap:5px;}
+.rp-toggle{width:38px;height:20px;border-radius:12px;background:linear-gradient(180deg,#2fbf5f,#1e8a45);box-shadow:inset 0 2px 4px rgba(0,0,0,.35), 0 2px 4px rgba(0,0,0,.25);position:relative;}
+.rp-toggle i{position:absolute;top:2px;left:20px;width:16px;height:16px;border-radius:50%;background:linear-gradient(180deg,#fff,#dfe3e6);box-shadow:0 1px 2px rgba(0,0,0,.4);}
+.rp-toggle-row span{font-size:9.5px;font-weight:800;color:#2b3138;direction:ltr;}
+
+/* MD-500 DEVICE ILLUSTRATION */
+.md500-device{display:flex;justify-content:center;padding:10px 0;}
+.md500-body{width:180px;background:linear-gradient(160deg,#ffd23f 0%,#f4b400 55%,#c98a00 100%);border-radius:22px;padding:14px 12px 16px;box-shadow:0 16px 26px rgba(60,40,0,.35), inset 0 2px 3px rgba(255,255,255,.5);position:relative;}
+.md500-topclip{width:34px;height:10px;background:#1a1a1a;border-radius:0 0 8px 8px;margin:0 auto 8px;}
+.md500-screen{background:#12100e;border-radius:10px;padding:10px 12px;box-shadow:inset 0 3px 8px rgba(0,0,0,.7);}
+.md500-screen-row{display:flex;justify-content:space-between;align-items:baseline;color:#f4d13a;font-family:'Courier New',monospace;font-size:13px;padding:3px 0;border-bottom:1px dashed #3a3320;}
+.md500-screen-row:last-child{border-bottom:none;}
+.md500-screen-row.title{color:#fff;font-weight:700;font-size:11px;justify-content:center;letter-spacing:1px;}
+.md500-screen-row b{font-size:17px;display:flex;align-items:baseline;gap:2px;}
+.md500-screen-row small{font-size:9px;opacity:.8;}
+.md500-screen-row.small{font-size:10px;color:#ffe9a8;}
+.md500-keys{display:flex;gap:6px;justify-content:center;margin-top:12px;}
+.md500-key{width:26px;height:10px;border-radius:5px;background:linear-gradient(180deg,#3a2c00,#1a1400);box-shadow:0 2px 3px rgba(0,0,0,.4);}
+.md500-key.wide{width:44px;}
+.md500-brand{text-align:center;color:#5c3d00;font-weight:900;font-size:11px;letter-spacing:1px;margin-top:10px;}
+
+/* ROAST LEVELS */
+.roast-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0;}
+.roast-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:16px;text-align:center;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;gap:8px;}
+.bean-icon{width:64px;height:64px;}
+.roast-card h4{margin:4px 0 0;font-size:15px;color:var(--roast-dark);}
+.roast-card .rc-en{font-size:11px;color:var(--muted);direction:ltr;font-weight:700;}
+.roast-card .rc-temp{background:var(--cream);border-radius:999px;padding:4px 12px;font-size:12.5px;font-weight:800;color:var(--roast-dark);direction:ltr;margin:4px 0;}
+.roast-card p{font-size:13px;color:var(--text);margin:0;text-align:right;}
+
+/* MAINTENANCE SCHEDULE */
+.maint-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px;}
+.maint-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow);}
+.maint-card h4{display:flex;align-items:center;gap:8px;margin:0 0 12px;color:var(--roast-dark);font-size:15.5px;}
+.maint-card h4 .ic svg{width:18px;height:18px;color:var(--gold);}
+.maint-card ul{list-style:none;margin:0;padding:0;}
+.maint-card li{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;padding:7px 0;border-bottom:1px dashed var(--border);}
+.maint-card li:last-child{border-bottom:none;}
+.maint-card li .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex:none;margin-top:6px;}
+.maint-card.daily .dot{background:var(--flame);}
+.maint-card.weekly .dot{background:var(--fan);}
+.maint-card.monthly .dot{background:var(--green);}
+
+/* TABLE SCROLL WRAPPER (mobile) */
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px;}
+.table-scroll table.cmp{min-width:640px;}
+
+/* ============ RESPONSIVE / MOBILE ============ */
+@media (max-width: 640px){
+  .hero{padding:40px 16px 32px;}
+  .hero h1{font-size:22px;}
+  .hero p{font-size:14px;}
+  .nav-inner{padding:8px 10px;gap:4px;}
+  .nav a{font-size:12.5px;padding:7px 11px;}
+  section.block{padding:32px 0;}
+  .sec-head h2{font-size:19px;}
+  .sec-head .ic svg{width:24px;height:24px;}
+  .grid.cols-3, .grid.cols-4{grid-template-columns:1fr 1fr;}
+  .roast-strip{grid-template-columns:1fr 1fr;}
+  .maint-grid{grid-template-columns:1fr;}
+  .quick-table{grid-template-columns:1fr 1fr;}
+  .illus-duo{gap:8px;}
+  .illus-duo .illus-single{min-width:130px;}
+  .mp-buttons-grid{grid-template-columns:repeat(2,1fr);}
+  .rp-toggles{grid-template-columns:repeat(2,1fr);}
+  .device-readout .row{font-size:12.5px;}
+  .strip{flex-direction:column;}
+  .strip .seg:not(:last-child)::after{display:none;}
+  table.cmp th, table.cmp td{font-size:12.5px;padding:9px 8px;}
+  .flip-card{height:110px;}
+}
+@media (max-width: 400px){
+  .grid.cols-3, .grid.cols-4, .roast-strip, .quick-table{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>☕ دليل تشغيل آلات تحميص القهوة</h1>
+  <p>دليل تفاعلي مصوّر لآلتَي التحميص <b>MILL CITY</b> و <b>ROASTWEEL</b> — يشرح كل زر ومقياس في لوحة التحكم، الإعدادات المناسبة لكل مرحلة، وفحص القهوة الخضراء قبل البدء. مُعدّ لفريق الإنتاج والجودة.</p>
+  <div class="badges">
+    <span class="badge">🔥 إعدادات التسخين والتحميص</span>
+    <span class="badge">🌱 فحص البن الأخضر</span>
+    <span class="badge">📊 مراحل البروفايل</span>
+    <span class="badge">⚙️ شرح كل زر بالتفصيل</span>
+  </div>
+</div>
+
+
+<div class="nav"><div class="nav-inner">
+  <a href="#s-overview">نظرة عامة</a>
+  <a href="#s-safety">السلامة التشغيلية</a>
+  <a href="#s-prebean">قبل التحميص</a>
+  <a href="#s-millcity">MILL CITY</a>
+  <a href="#s-roastweel">ROASTWEEL</a>
+  <a href="#s-compare">مقارنة الآلتين</a>
+  <a href="#s-stages">مراحل التحميص</a>
+  <a href="#s-roastlevels">درجات التحميص</a>
+  <a href="#s-troubleshoot">استكشاف الأعطال</a>
+  <a href="#s-maintenance">الصيانة والتنظيف</a>
+  <a href="#s-glossary">المصطلحات</a>
+</div></div>
+
+
+<section class="block" id="s-overview">
+  <div class="wrap">
+    <div class="sec-head"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16"/><circle cx="12" cy="7.5" r=".8" fill="currentColor" stroke="none"/></svg></span><h2>نظرة عامة على قسم التحميص</h2></div>
+    <p class="sec-sub">يضم قسم التحميص في المصنع آلتين رئيسيتين تعملان بالغاز، كل منهما بلوحة تحكم مختلفة الفلسفة: <b>MILL CITY</b> ذات اسطوانة مزدوجة بإعدادات رقمية مباشرة (حرارة، ضغط غاز، سرعة مروحة، سرعة اسطوانة)، و<b>ROASTWEEL</b> ذات اسطوانة مفردة تعمل بمنطق "قيم إنذار" (Alarm Values) تتحكم تلقائيًا بالحرق والحرارة.</p>
+    <div class="illus-frame">
+      <div class="illus-duo">
+        <div class="illus-single">
+          
+    <svg viewBox="0 0 340 320" class="roaster-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ff7a3d"/><stop offset=".55" stop-color="#e4572e"/><stop offset="1" stop-color="#a63c1c"/>
+        </linearGradient>
+        <radialGradient id="g2" cx="35%" cy="30%" r="75%">
+          <stop offset="0" stop-color="#3a2a20"/><stop offset="1" stop-color="#1a1310"/>
+        </radialGradient>
+        <linearGradient id="g3" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#dfe3e6"/><stop offset="1" stop-color="#9aa3ab"/>
+        </linearGradient>
+        <radialGradient id="g4" cx="50%" cy="35%" r="65%">
+          <stop offset="0" stop-color="#fff7d6"/><stop offset=".4" stop-color="#f4c542"/><stop offset="1" stop-color="#8a5a12"/>
+        </radialGradient>
+        <filter id="sh5" x="-30%" y="-10%" width="160%" height="140%">
+          <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000" flood-opacity="0.28"/>
+        </filter>
+      </defs>
+      <ellipse cx="170" cy="298" rx="120" ry="14" fill="#000" opacity=".12"/>
+      <g filter="url(#sh5)">
+        <!-- chimney -->
+        <rect x="196" y="18" width="20" height="60" rx="4" fill="url(#g3)"/>
+        <!-- hopper -->
+        <path d="M120 46 L220 46 L196 96 L144 96 Z" fill="url(#g3)" stroke="#7c848c" stroke-width="1.5"/>
+        <rect x="160" y="94" width="20" height="18" fill="#7c848c"/>
+        <!-- main body -->
+        <rect x="70" y="108" width="200" height="118" rx="14" fill="url(#g1)" stroke="#00000022"/>
+        <rect x="70" y="108" width="200" height="30" rx="14" fill="#ffffff" opacity=".18"/>
+        <!-- control box -->
+        <rect x="82" y="122" width="46" height="90" rx="8" fill="#232b33"/>
+        <circle cx="105" cy="140" r="5" fill="#ff4d4d"/>
+        <rect x="90" y="152" width="30" height="12" rx="2" fill="#173" opacity=".8"/>
+        <rect x="90" y="168" width="30" height="12" rx="2" fill="#173" opacity=".8"/>
+        <circle cx="97" cy="196" r="6" fill="#3ddc63"/>
+        <circle cx="115" cy="196" r="6" fill="#e63946"/>
+        <!-- drum window -->
+        <circle cx="205" cy="168" r="46" fill="#3a3f45"/>
+        <circle cx="205" cy="168" r="38" fill="url(#g2)"/>
+        <circle cx="192" cy="154" r="10" fill="#fff" opacity=".35"/>
+        <!-- legs -->
+        <rect x="90" y="226" width="14" height="46" rx="3" fill="url(#g3)"/>
+        <rect x="240" y="226" width="14" height="46" rx="3" fill="url(#g3)"/>
+        <rect x="80" y="270" width="34" height="10" rx="3" fill="#5b6169"/>
+        <rect x="230" y="270" width="34" height="10" rx="3" fill="#5b6169"/>
+        <!-- cooling tray -->
+        <ellipse cx="205" cy="252" rx="70" ry="16" fill="url(#g3)"/>
+        <ellipse cx="205" cy="248" rx="60" ry="11" fill="#c9cfd4"/>
+      </g>
+    </svg>
+    
+    
+          <div class="illus-caption"><b>MILL CITY</b><br>اسطوانة مزدوجة</div>
+        </div>
+        <div class="illus-single">
+          
+    <svg viewBox="0 0 340 320" class="roaster-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g6" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#e8c25a"/><stop offset=".55" stop-color="#c9a227"/><stop offset="1" stop-color="#8a6d1f"/>
+        </linearGradient>
+        <radialGradient id="g7" cx="35%" cy="30%" r="75%">
+          <stop offset="0" stop-color="#241f14"/><stop offset="1" stop-color="#0d0b06"/>
+        </radialGradient>
+        <linearGradient id="g8" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#dfe3e6"/><stop offset="1" stop-color="#9aa3ab"/>
+        </linearGradient>
+        <radialGradient id="g9" cx="50%" cy="35%" r="65%">
+          <stop offset="0" stop-color="#fff7d6"/><stop offset=".4" stop-color="#f4c542"/><stop offset="1" stop-color="#8a5a12"/>
+        </radialGradient>
+        <filter id="sh10" x="-30%" y="-10%" width="160%" height="140%">
+          <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000" flood-opacity="0.28"/>
+        </filter>
+      </defs>
+      <ellipse cx="170" cy="298" rx="120" ry="14" fill="#000" opacity=".12"/>
+      <g filter="url(#sh10)">
+        <!-- chimney -->
+        <rect x="196" y="18" width="20" height="60" rx="4" fill="url(#g8)"/>
+        <!-- hopper -->
+        <path d="M120 46 L220 46 L196 96 L144 96 Z" fill="url(#g8)" stroke="#7c848c" stroke-width="1.5"/>
+        <rect x="160" y="94" width="20" height="18" fill="#7c848c"/>
+        <!-- main body -->
+        <rect x="70" y="108" width="200" height="118" rx="14" fill="url(#g6)" stroke="#00000022"/>
+        <rect x="70" y="108" width="200" height="30" rx="14" fill="#ffffff" opacity=".18"/>
+        <!-- control box -->
+        <rect x="82" y="122" width="46" height="90" rx="8" fill="#232b33"/>
+        <circle cx="105" cy="140" r="5" fill="#ff4d4d"/>
+        <rect x="90" y="152" width="30" height="12" rx="2" fill="#173" opacity=".8"/>
+        <rect x="90" y="168" width="30" height="12" rx="2" fill="#173" opacity=".8"/>
+        <circle cx="97" cy="196" r="6" fill="#3ddc63"/>
+        <circle cx="115" cy="196" r="6" fill="#e63946"/>
+        <!-- drum window -->
+        <circle cx="205" cy="168" r="46" fill="#3a3f45"/>
+        <circle cx="205" cy="168" r="38" fill="url(#g7)"/>
+        <circle cx="192" cy="154" r="10" fill="#fff" opacity=".35"/>
+        <!-- legs -->
+        <rect x="90" y="226" width="14" height="46" rx="3" fill="url(#g8)"/>
+        <rect x="240" y="226" width="14" height="46" rx="3" fill="url(#g8)"/>
+        <rect x="80" y="270" width="34" height="10" rx="3" fill="#5b6169"/>
+        <rect x="230" y="270" width="34" height="10" rx="3" fill="#5b6169"/>
+        <!-- cooling tray -->
+        <ellipse cx="205" cy="252" rx="70" ry="16" fill="url(#g8)"/>
+        <ellipse cx="205" cy="248" rx="60" ry="11" fill="#c9cfd4"/>
+      </g>
+    </svg>
+    
+    
+          <div class="illus-caption"><b>ROASTWEEL</b><br>اسطوانة مفردة</div>
+        </div>
+      </div>
+      <div class="illus-caption" style="margin-top:10px;">تصميم توضيحي لآلتَي التحميص في غرفة الإنتاج (رسم تخطيطي وليس صورة فعلية)</div>
+    </div>
+    <div class="callout tip"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16"/><circle cx="12" cy="7.5" r=".8" fill="currentColor" stroke="none"/></svg></span><div><b>كيف تُقرأ هذه الصفحة؟</b> تصفّح الأقسام من القائمة العلوية. كل بطاقة زر وكل مرحلة قابلة للضغط لعرض شرح تفصيلي وأي قيمة إعداد موصى بها. الأقسام المُضافة من خبرة عامة في صناعة التحميص (غير مأخوذة من ملاحظاتكم اليدوية) مُشار إليها بوضوح.</div></div>
+  </div>
+</section>
+
+
+<section class="block" id="s-safety">
+  <div class="wrap">
+    <div class="sec-head"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l10 18H2z"/><line x1="12" y1="10" x2="12" y2="15"/><circle cx="12" cy="18" r=".8" fill="currentColor" stroke="none"/></svg></span><h2>السلامة التشغيلية</h2></div>
+    <p class="sec-sub">تنبيهات عامة يجب ربطها دائمًا بإجراءات المصنع الرسمية المعتمدة، وليست بديلاً عنها.</p>
+    <div class="safety-banner"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l10 18H2z"/><line x1="12" y1="10" x2="12" y2="15"/><circle cx="12" cy="18" r=".8" fill="currentColor" stroke="none"/></svg></span><span>السلامة أولًا: أي تشغيل لآلات التحميص يجب أن يلتزم بتعليمات المصنع الرسمية للسلامة قبل أي خطوة تشغيلية أخرى.</span></div>
+    <div class="grid cols-3"><div class="safety-card"><span class="sf-emoji">🛡️</span><h4>مصادر الطاقة</h4><p>لا تبدأ التشغيل قبل التأكد من الغاز والكهرباء والتهوية وفق تعليمات الموقع.</p></div><div class="safety-card"><span class="sf-emoji">🔥</span><h4>الحارق والغاز</h4><p>لا تُغيّر إعدادات الغاز أو الحارق إلا من شخص مخوّل ومدرّب.</p></div><div class="safety-card"><span class="sf-emoji">🚨</span><h4>إيقاف الطوارئ</h4><p>يجب أن يعرف كل مشغل مكان زر إيقاف الطوارئ وإجراء الإبلاغ بعد استخدامه.</p></div><div class="safety-card"><span class="sf-emoji">❄️</span><h4>التبريد</h4><p>تابع التبريد والتقليب بعد التفريغ، ولا تترك البن الساخن دون مراقبة.</p></div><div class="safety-card"><span class="sf-emoji">🧹</span><h4>النظافة</h4><p>نظّف مناطق تراكم القشور والزيوت وفق جدول التنظيف المعتمد لتقليل مخاطر الاشتعال.</p></div><div class="safety-card ref"><span class="sf-emoji">📌</span><h4>مرجع الشركة</h4><p>هذا الدليل مساعد تدريبي ولا يحل محل دليل الشركة المصنعة أو تعليمات السلامة المعتمدة.</p></div></div>
+  </div>
+</section>
+
+
+<section class="block" id="s-prebean">
+  <div class="wrap">
+    <div class="sec-head"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 20C4 10 12 4 21 4c0 9-6 17-16 17H4v-1z"/><path d="M4 20c3-5 7-9 12-12"/></svg></span><h2>قبل بدء التحميص: فحص القهوة الخضراء</h2></div>
+    <p class="sec-sub">وفق التعليمات المكتوبة: قبل بدء العمل في قسم التحميص يتم تشغيل الغاز ومصادر الطاقة الكهربائية، ثم تُفحص القهوة الخضراء (الرطوبة والكثافة)، ثم يُحدَّد البروفايل (Profile) المناسب بناءً على نتيجة الفحص، ثم تُجهَّز أول دفعة (30 كجم تقريبًا) للتحميص.</p>
+
+    <div class="strip" style="border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
+      <div class="seg" style="background:var(--navy);--nextcolor:var(--navy)">1. تشغيل الغاز والكهرباء<span>فتح المصدرين قبل أي خطوة</span></div>
+      <div class="seg" style="background:var(--roast);--nextcolor:var(--roast)">2. فحص الرطوبة والكثافة<span>باستخدام جهاز MD-500</span></div>
+      <div class="seg" style="background:var(--gold);color:var(--roast-dark);--nextcolor:var(--gold)">3. تحديد البروفايل المناسب<span>بناءً على نتيجة الفحص</span></div>
+      <div class="seg" style="background:var(--green);--nextcolor:var(--green)">4. تجهيز أول دفعة (٣٠كجم)<span>وبدء التحميص</span></div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="info-panel">
+          <h3><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg></span> لماذا نفحص الرطوبة والكثافة قبل التحميص؟</h3>
+          <p>حبة البن الخضراء ليست موحّدة بين دفعة وأخرى — تختلف نسبة رطوبتها وكثافتها حسب المنشأ، موسم الحصاد، وطريقة التخزين. هذان العاملان يحددان <b>سرعة انتقال الحرارة</b> إلى داخل الحبة:</p>
+          <ul>
+            <li>🌱 <b>بُنّ عالي الرطوبة/الكثافة</b>: يحتاج طاقة حرارية أكبر ومدة أطول في مرحلة التجفيف قبل أن يبدأ اللون بالتغيّر، وإلا يخرج التحميص "سطحيًا محروقًا وداخليًا نيئًا".</li>
+            <li>🌱 <b>بُنّ منخفض الرطوبة/الكثافة</b>: يتحمّص بسرعة أكبر، ويحتاج ضبط حرارة أو مدة أقل تجنبًا لتحميص زائد أو حرق السطح.</li>
+          </ul>
+          <p>لذلك فإن نتيجة الفحص هي التي تحدد "البروفايل" (إعدادات الحرارة/النار/المدة) المناسب لكل دفعة، وليس إعدادًا ثابتًا يُستخدم دائمًا.</p>
+          <div class="callout tip"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".6" fill="currentColor" stroke="none"/></svg></span><div><b>مرجع صناعي عام:</b> تتراوح نسبة الرطوبة المقبولة تجاريًا للبن الأخضر عادة بين ٩٪ و١٢.٥٪ تقريبًا (معلومة عامة من صناعة القهوة، وليست من ملاحظاتكم). القيم خارج هذا النطاق تستدعي مراجعة المورّد أو ظروف التخزين قبل حتى التفكير في التحميص.</div></div>
+        </div>
+      </div>
+      <div>
+        
+    <div class="md500-device">
+      <div class="md500-body">
+        <div class="md500-topclip"></div>
+        <div class="md500-screen">
+          <div class="md500-screen-row title">Measure</div>
+          <div class="md500-screen-row"><span>M</span><b>11.7<small>%</small></b></div>
+          <div class="md500-screen-row"><span>D</span><b>632<small>g/L</small></b></div>
+          <div class="md500-screen-row small"><span>28.1°C</span><span>GREEN</span></div>
+        </div>
+        <div class="md500-keys">
+          <div class="md500-key"></div><div class="md500-key"></div><div class="md500-key wide"></div>
+        </div>
+        <div class="md500-brand">MD-500</div>
+      </div>
+    </div>
+        <div class="illus-caption" style="margin-top:-4px;">تصميم توضيحي لجهاز MD-500 (وليس صورة فعلية)</div>
+        <div class="device-readout" style="margin-top:14px;">
+          <div class="row"><span>الوضع</span><b>Measure — قياس</b></div>
+          <div class="row"><span>M — نسبة الرطوبة</span><b>%11.7</b></div>
+          <div class="row"><span>D — مؤشر الكثافة</span><b>632 g/L</b></div>
+          <div class="row"><span>درجة حرارة العينة</span><b>°28.1C</b></div>
+          <div class="row"><span>نوع المنتج المختار</span><b>Green — بُنّ أخضر</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-panel" style="margin-top:20px;">
+      <h3><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 15a8 8 0 1 1 16 0"/><line x1="12" y1="15" x2="15.5" y2="10.5"/><circle cx="12" cy="15" r="1.2" fill="currentColor" stroke="none"/></svg></span> كيف يعمل جهاز MD-500؟</h3>
+      <p>هذا الجهاز مقياس رطوبة/كثافة محمول مخصص للحبوب (Grain Moisture &amp; Density Meter). آلية عمله باختصار:</p>
+      <ul>
+        <li><b>اختيار نوع المنتج</b>: يتم اختيار الإعداد الخاص بـ "Green" (بُنّ أخضر) من قائمة المنتجات المحفوظة بالجهاز، لأن معايرة القياس تختلف حسب نوع الحبة.</li>
+        <li><b>وضع العينة</b>: تُسكب كمية من حبوب البن الأخضر في حجرة القياس الخاصة بالجهاز.</li>
+        <li><b>القياس</b>: يقيس الجهاز الخاصية الكهربائية للحبوب (السعة الكهربائية غالبًا) والتي ترتبط مباشرة بنسبة الماء الموجودة داخلها، ثم يحوّلها إلى نسبة رطوبة مئوية (M)، مع قراءة إضافية لكثافة الحبوب الظاهرية (D) بوحدة g/L ودرجة حرارة العينة.</li>
+        <li><b>اتخاذ القرار</b>: تُقارن القراءتان بالمعدل المعتاد لدى المصنع؛ فإذا كانت الرطوبة أعلى أو أقل من المعتاد، يُعدَّل البروفايل (حرارة البداية، مدة مرحلة التجفيف) تبعًا لذلك.</li>
+      </ul>
+      <div class="callout warn"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l10 18H2z"/><line x1="12" y1="10" x2="12" y2="15"/><circle cx="12" cy="18" r=".8" fill="currentColor" stroke="none"/></svg></span><div>القراءات المعروضة (١١.٧٪ رطوبة، وكثافة <b>632 g/L</b>) هي مثال توضيحي فقط من جهازكم، ويجب دائمًا مقارنتها بالمواصفة المعتمدة لدى المصنع لكل نوع بُنّ قبل اتخاذ قرار التحميص.</div></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="block" id="s-millcity">
+  <div class="wrap">
+    <div class="sec-head"><span class="ic"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.5"/><path d="M5 6v12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6"/><line x1="7" y1="9" x2="17" y2="9" stroke-dasharray="1.5 1.8"/></svg></span><h2>ماكينة MILL CITY</h2></div>
+    <p class="sec-sub">آلة تحميص <b>ذات اسطوانة مزدوجة</b>، تُشغَّل عبر فتح صمام الغاز ثم مصدر الطاقة الكهربائية، ثم ضبط الإعدادات المناسبة لعملية إحماء الآلة قبل استقبال أول دفعة.</p>
+
+    <div class="two-col">
+      <div>
+        
+    <div class="mill-panel">
+      <div class="mp-topbar">
+        <div class="mp-chip"><span class="ic"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1"/><line x1="9" y1="2" x2="9" y2="6"/><line x1="15" y1="2" x2="15" y2="6"/><line x1="9" y1="18" x2="9" y2="22"/><line x1="15" y1="18" x2="15" y2="22"/><line x1="2" y1="9" x2="6" y2="9"/><line x1="2" y1="15" x2="6" y2="15"/><line x1="18" y1="9" x2="22" y2="9"/><line x1="18" y1="15" x2="22" y2="15"/></svg></span><span>DATA</span></div>
+        <div class="mp-alarm"><span class="mp-alarm-dome"></span><span>ALARM</span></div>
+      </div>
+      <div class="mp-displays">
+        <div class="mp-disp-box"><span class="lcd-screen" style="min-width:50px;color:#ffb144;text-shadow:0 0 6px #ffb14488;">00.0</span><span class="mp-name">TIMER</span></div>
+        <div class="mp-disp-box"><span class="lcd-screen" style="min-width:50px;color:#ff5b7a;text-shadow:0 0 6px #ff5b7a88;">2</span><span class="mp-name">ET</span></div>
+      </div>
+      <div class="mp-row">
+          <div class="mp-updown">
+            <div class="mp-arrow up">▲</div><div class="mp-arrow down">▼</div>
+          </div>
+          <div class="mp-lcd"><span class="lcd-screen" style="min-width:58px;color:#3ddc63;text-shadow:0 0 6px #3ddc6388;">200</span><span class="mp-unit"></span></div>
+          <div class="mp-name">TEMPERATURE CONTROL</div>
+        </div>
+      <div class="mp-row">
+          <div class="mp-updown">
+            <div class="mp-arrow up">▲</div><div class="mp-arrow down">▼</div>
+          </div>
+          <div class="mp-lcd"><span class="lcd-screen" style="min-width:58px;color:#3ddc63;text-shadow:0 0 6px #3ddc6388;">3500</span><span class="mp-unit"></span></div>
+          <div class="mp-name">GAS PRESSURE</div>
+        </div>
+      <div class="mp-row">
+          <div class="mp-updown">
+            <div class="mp-arrow up">▲</div><div class="mp-arrow down">▼</div>
+          </div>
+          <div class="mp-lcd"><span class="lcd-screen" style="min-width:58px;color:#3ddc63;text-shadow:0 0 6px #3ddc6388;">20.0</span><span class="mp-unit"></span></div>
+          <div class="mp-name">EXHAUST FAN SPEED</div>
+        </div>
+      <div class="mp-row">
+          <div class="mp-updown">
+            <div class="mp-arrow up">▲</div><div class="mp-arrow down">▼</div>
+          </div>
+          <div class="mp-lcd"><span class="lcd-screen" style="min-width:58px;color:#3ddc63;text-shadow:0 0 6px #3ddc6388;">48.0</span><span class="mp-unit"></span></div>
+          <div class="mp-name">DRUM SPEED</div>
+        </div>
+      <div class="mp-buttons-grid">
+        <div class="btn3d-wrap">
+      <div class="btn3d" style="background:radial-gradient(circle at 35% 28%, #ff9d9d, #c0392b 65%, #7a1f17);"></div>
+      <div class="btn3d-label">IGNITION</div>
+    </div>
+        <div class="btn3d-wrap">
+      <div class="btn3d" style="background:radial-gradient(circle at 35% 28%, #8CFCA6, #1e8a45 65%, #0b4c26);"></div>
+      <div class="btn3d-label">START</div>
+    </div>
+        <div class="btn3d-wrap">
+      <div class="btn3d" style="background:radial-gradient(circle at 35% 28%, #8CFCA6, #1e8a45 65%, #0b4c26);"></div>
+      <div class="btn3d-label">COOLING<br>FAN</div>
+    </div>
+        <div class="btn3d-wrap">
+      <div class="btn3d" style="background:radial-gradient(circle at 35% 28%, #8CFCA6, #1e8a45 65%, #0b4c26);"></div>
+      <div class="btn3d-label">CHARGE<br>DRUM</div>
+    </div>
+        <div class="btn3d-wrap">
+      <div class="btn3d" style="background:radial-gradient(circle at 35% 28%, #9de8e0, #1c8a86 65%, #0d4f4c);"></div>
+      <div class="btn3d-label">COOLING<br>ARMS</div>
+    </div>
+        <div class="btn3d-wrap">
+      <div class="btn3d" style="background:radial-gradient(circle at 35% 28%, #9de8e0, #1c8a86 65%, #0d4f4c);"></div>
+      <div class="btn3d-label">DISCHARGE<br>DRUM</div>
+    </div>
+      </div>
+      <div class="mp-bottombar">
+        <div class="mp-estop"><div class="mp-estop-dome"></div><span>EMERGENCY STOP</span></div>
+        <div class="mp-power"><div class="mp-power-toggle"><span>OFF</span><span>ON</span></div><span>POWER</span></div>
+      </div>
+    </div>
+        <div class="illus-caption">تصميم توضيحي للوحة تحكم MILL CITY (رسم تخطيطي مطابق للتخطيط الفعلي للأزرار)</div>
+      </div>
+      <div class="info-panel">
+        <h3><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 15a8 8 0 1 1 16 0"/><line x1="12" y1="15" x2="15.5" y2="10.5"/><circle cx="12" cy="15" r="1.2" fill="currentColor" stroke="none"/></svg></span> إعدادات بدء التسخين (نظرة سريعة)</h3>
+        <div class="quick-table">
+          <div class="quick-cell"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3a2 2 0 0 0-2 2v8.3a4 4 0 1 0 4 0V5a2 2 0 0 0-2-2z"/><circle cx="12" cy="17.5" r="2" fill="currentColor" stroke="none"/><line x1="12" y1="7" x2="12" y2="13.5"/></svg></span><div class="qc-label">Temp Control</div><div class="qc-val">200</div></div>
+          <div class="quick-cell"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2c1 3-2 4-2 7a3 3 0 0 0 6 0c0-1-.5-2-1-2.5.5 2-1 3-1 3 .3-2-1.5-3-1-5.5C13.5 3 12 2 12 2z"/><path d="M8.5 13.5c0 3.5 2 6.5 5 6.5s5-2.5 5-5.8c0-1.6-.7-2.7-1.3-3.5.2 1.8-1 2.8-1 2.8.3-2.4-1.3-3.5-1.7-5.5-2 1.7-4 3-4 5.5-.5-.3-.7-1-1-2-.6.8-1 1.8-1 2z" fill="none"/></svg></span><div class="qc-label">Gas Pressure</div><div class="qc-val">3500</div></div>
+          <div class="quick-cell"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><path d="M12 10.4c-.9-2-.6-4.8 1-6.2 1.7-1.4 3.6.2 3 2.3-.5 1.9-2.3 3.1-4 3.9zM12 13.6c.9 2 .6 4.8-1 6.2-1.7 1.4-3.6-.2-3-2.3.5-1.9 2.3-3.1 4-3.9zM10.4 12c-2 .9-4.8.6-6.2-1-1.4-1.7.2-3.6 2.3-3 1.9.5 3.1 2.3 3.9 4zM13.6 12c2-.9 4.8-.6 6.2 1 1.4 1.7-.2 3.6-2.3 3-1.9-.5-3.1-2.3-3.9-4z"/></svg></span><div class="qc-label">Exhaust Fan</div><div class="qc-val">20</div></div>
+          <div class="quick-cell"><span class="ic"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.5"/><path d="M5 6v12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6"/><line x1="7" y1="9" x2="17" y2="9" stroke-dasharray="1.5 1.8"/></svg></span><div class="qc-label">Drum Speed</div><div class="qc-val">48</div></div>
+        </div>
+        <p class="legend-note">هذه القيم مخصّصة لمرحلة تسخين الآلة قبل تلقيم أول دفعة؛ وتتغيّر خانتا الغاز والمروحة تلقائيًا حسب مرحلة التحميص كما هو موضح في "مراحل بروفايل التحميص" أدناه.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:34px;color:var(--roast-dark);display:flex;align-items:center;gap:8px;"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".6" fill="currentColor" stroke="none"/></svg></span> شرح كل جزء وزر في لوحة التحكم <small class="js-hint" style="font-size:13px;color:var(--muted);font-weight:500;">(اضغط على أي بطاقة لعرض التفاصيل)</small></h3>
+    <div class="grid cols-3" style="margin-top:14px;">
+    <div class="control-card tone-red" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><path d="M18 16v-5a6 6 0 0 0-12 0v5l-2 3h16z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">ALARM</span>
+          <span class="cc-ar">جرس الإنذار</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>جرس/مؤشر صوتي يُنبّه عند وصول قيمة مضبوطة (كدرجة الحرارة المستهدفة) إلى حدّها، أو عند حدوث خلل تشغيلي في الآلة.</p>
+        
+        
+      </div>
+    </div>
+    <div class="control-card tone-brown" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><path d="M12 3a2 2 0 0 0-2 2v8.3a4 4 0 1 0 4 0V5a2 2 0 0 0-2-2z"/><circle cx="12" cy="17.5" r="2" fill="currentColor" stroke="none"/><line x1="12" y1="7" x2="12" y2="13.5"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">ET</span>
+          <span class="cc-ar">شاشة قراءة حرارية إضافية</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>شاشة رقمية صغيرة بجانب المؤقّت تعرض قراءة حرارة تكميلية أثناء الدورة، تُستخدم كمرجع مساعد لمتابعة سير التحميص بجانب شاشة Temperature Control الرئيسية.</p>
+        
+        <p class="cc-extra">ملاحظة: هذا تفسير عام للرمز كما يظهر في لوحتكم؛ يُفضّل تأكيد مصدر هذه القراءة تحديدًا (حرارة الهواء العادم أم حرارة الحبة) من دليل الشركة المصنّعة.</p>
+      </div>
+    </div>
+    <div class="control-card tone-brown" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1"/><line x1="9" y1="2" x2="9" y2="6"/><line x1="15" y1="2" x2="15" y2="6"/><line x1="9" y1="18" x2="9" y2="22"/><line x1="15" y1="18" x2="15" y2="22"/><line x1="2" y1="9" x2="6" y2="9"/><line x1="2" y1="15" x2="6" y2="15"/><line x1="18" y1="9" x2="22" y2="9"/><line x1="18" y1="15" x2="22" y2="15"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">DATA</span>
+          <span class="cc-ar">منفذ نقل البيانات</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>منفذ توصيل خارجي (Data Port) لربط لوحة التحكم بجهاز تسجيل بيانات أو حاسوب، لتصدير ومتابعة منحنى حرارة التحميص (Roast Curve) لكل دفعة.</p>
+        
+        
+      </div>
+    </div>
+    <div class="control-card tone-brown" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12,7 12,12 16,14"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">TIMER</span>
+          <span class="cc-ar">المؤقّت</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>يعرض ويحسب الزمن المنقضي منذ لحظة تنزيل القهوة إلى الاسطوانة (Charge)، وهو مرجع أساسي لتحديد مدة كل مرحلة ومدة التحميص الكلية.</p>
+        
+        
+      </div>
+    </div>
+    <div class="control-card tone-flame" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><path d="M12 3a2 2 0 0 0-2 2v8.3a4 4 0 1 0 4 0V5a2 2 0 0 0-2-2z"/><circle cx="12" cy="17.5" r="2" fill="currentColor" stroke="none"/><line x1="12" y1="7" x2="12" y2="13.5"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">TEMPERATURE CONTROL</span>
+          <span class="cc-ar">ضبط درجة الحرارة (▲/▼)</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>يضبط درجة الحرارة المستهدفة داخل غرفة التحميص عبر زرَي UP / DOWN. تُقارَن القراءة الفعلية بهذا الهدف طوال الدورة.</p>
+        <div class="cc-setting"><span class="cc-setting-label">القيمة الموصى بها</span><span class="cc-setting-val">٢٠٠ (عند التسخين)</span></div>
+        
+      </div>
+    </div>
+    <div class="control-card tone-flame" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><path d="M12 2c1 3-2 4-2 7a3 3 0 0 0 6 0c0-1-.5-2-1-2.5.5 2-1 3-1 3 .3-2-1.5-3-1-5.5C13.5 3 12 2 12 2z"/><path d="M8.5 13.5c0 3.5 2 6.5 5 6.5s5-2.5 5-5.8c0-1.6-.7-2.7-1.3-3.5.2 1.8-1 2.8-1 2.8.3-2.4-1.3-3.5-1.7-5.5-2 1.7-4 3-4 5.5-.5-.3-.7-1-1-2-.6.8-1 1.8-1 2z" fill="none"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">GAS PRESSURE</span>
+          <span class="cc-ar">ضغط الغاز (▲/▼)</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>يضبط ضغط الغاز الواصل إلى الحارق (البرنر) وبالتالي شدة النار. القيمة تُرفع أو تُخفض حسب مرحلة التحميص (بداية / تحول / تطوير).</p>
+        <div class="cc-setting"><span class="cc-setting-label">القيمة الموصى بها</span><span class="cc-setting-val">٣٥٠٠ (عند التسخين) ← ٤٠٠٠ عند نقطة التحول ← ٣٥٠٠ عند التطوير</span></div>
+        
+      </div>
+    </div>
+    <div class="control-card tone-fan" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><path d="M12 10.4c-.9-2-.6-4.8 1-6.2 1.7-1.4 3.6.2 3 2.3-.5 1.9-2.3 3.1-4 3.9zM12 13.6c.9 2 .6 4.8-1 6.2-1.7 1.4-3.6-.2-3-2.3.5-1.9 2.3-3.1 4-3.9zM10.4 12c-2 .9-4.8.6-6.2-1-1.4-1.7.2-3.6 2.3-3 1.9.5 3.1 2.3 3.9 4zM13.6 12c2-.9 4.8-.6 6.2 1 1.4 1.7-.2 3.6-2.3 3-1.9-.5-3.1-2.3-3.9-4z"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">EXHAUST FAN SPEED</span>
+          <span class="cc-ar">سرعة مروحة السحب (▲/▼)</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>تتحكم بسرعة سحب الهواء الساخن والدخان وقشور القهوة (Chaff) خارج غرفة التحميص، وتؤثر مباشرة على انتظام التحميص ونظافة الاسطوانة.</p>
+        <div class="cc-setting"><span class="cc-setting-label">القيمة الموصى بها</span><span class="cc-setting-val">٢٠ (عند التسخين) ← يرتفع إلى نحو ٢٥ في مرحلة التجفيف/الاصفرار</span></div>
+        
+      </div>
+    </div>
+    <div class="control-card tone-brown" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.5"/><path d="M5 6v12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6"/><line x1="7" y1="9" x2="17" y2="9" stroke-dasharray="1.5 1.8"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">DRUM SPEED</span>
+          <span class="cc-ar">سرعة الاسطوانة (▲/▼)</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>تضبط سرعة دوران الاسطوانة الداخلية، وتؤثر على مدى تجانس توزيع الحرارة على كامل حبات القهوة أثناء دورانها.</p>
+        <div class="cc-setting"><span class="cc-setting-label">القيمة الموصى بها</span><span class="cc-setting-val">٤٨ (مناسبة لدفعة تحميص ~٣٠ كجم)</span></div>
+        
+      </div>
+    </div>
+    <div class="control-card tone-flame" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><path d="M12 2c1 3-2 4-2 7a3 3 0 0 0 6 0c0-1-.5-2-1-2.5.5 2-1 3-1 3 .3-2-1.5-3-1-5.5C13.5 3 12 2 12 2z"/><path d="M8.5 13.5c0 3.5 2 6.5 5 6.5s5-2.5 5-5.8c0-1.6-.7-2.7-1.3-3.5.2 1.8-1 2.8-1 2.8.3-2.4-1.3-3.5-1.7-5.5-2 1.7-4 3-4 5.5-.5-.3-.7-1-1-2-.6.8-1 1.8-1 2z" fill="none"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">IGNITION</span>
+          <span class="cc-ar">إشعال الحارق</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>زر إشعال النار في حجرة الاحتراق (البرنر) لبدء توليد الحرارة. يُستخدم أيضًا لإطفاء النار يدويًا عند إنهاء دورة التحميص.</p>
+        
+        
+      </div>
+    </div>
+    <div class="control-card tone-green" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">START</span>
+          <span class="cc-ar">تشغيل الآلة</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>يبدأ تشغيل الوظائف الأساسية للآلة (كدوران الاسطوانة والمروحة) تمهيدًا لعملية التسخين ثم التحميص.</p>
+        
+        
+      </div>
+    </div>
+    <div class="control-card tone-green" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><path d="M12 3v10"/><polyline points="8,9 12,13 16,9"/><ellipse cx="12" cy="17" rx="7" ry="2.3"/><path d="M5 17v2.5c0 1.3 3.1 2.3 7 2.3s7-1 7-2.3V17"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">CHARGE DRUM</span>
+          <span class="cc-ar">تلقيم الاسطوانة</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>يُنزّل القهوة الخضراء من القمع العلوي إلى داخل الاسطوانة لبدء دورة تحميص جديدة، بعد التأكد من رطوبتها وكثافتها.</p>
+        
+        
+      </div>
+    </div>
+    <div class="control-card tone-green" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.3"/><path d="M5 6v3c0 1.3 3.1 2.3 7 2.3s7-1 7-2.3V6"/><path d="M12 12v8"/><polyline points="8,17 12,21 16,17"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">DISCHARGE DRUM</span>
+          <span class="cc-ar">تفريغ الاسطوانة</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>يُفرّغ القهوة المحمّصة من الاسطوانة إلى حوض التبريد بعد الوصول إلى اللون والرائحة المطلوبين وإطفاء النار.</p>
+        
+        
+      </div>
+    </div>
+    <div class="control-card tone-fan" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><line x1="4" y1="7" x2="20" y2="17"/><line x1="20" y1="7" x2="4" y2="17"/><line x1="12" y1="2" x2="9.5" y2="4.5"/><line x1="12" y1="2" x2="14.5" y2="4.5"/><line x1="12" y1="22" x2="9.5" y2="19.5"/><line x1="12" y1="22" x2="14.5" y2="19.5"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">COOLING FAN</span>
+          <span class="cc-ar">مروحة التبريد</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>تسحب هواءً خارجيًا عبر حوض التبريد لتسريع خفض حرارة القهوة المحمّصة فور تفريغها، ووقف استمرار الطهي الداخلي (Carryover).</p>
+        
+        
+      </div>
+    </div>
+    <div class="control-card tone-fan" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5"/><path d="M20 12a8 8 0 0 1-14 5"/><polyline points="18,3 18,7 14,7"/><polyline points="6,21 6,17 10,17"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">COOLING ARM</span>
+          <span class="cc-ar">ذراع تقليب التبريد</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>ذراع دوّار داخل حوض التبريد يقلّب حبات القهوة أثناء التبريد لضمان توزيع الهواء البارد بالتساوي على كل الحبات.</p>
+        
+        
+      </div>
+    </div>
+    <div class="control-card tone-red" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><polygon points="7.5,2 16.5,2 22,7.5 22,16.5 16.5,22 7.5,22 2,16.5 2,7.5"/><rect x="8.5" y="8.5" width="7" height="7" fill="currentColor" stroke="none"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">EMERGENCY STOP</span>
+          <span class="cc-ar">إيقاف الطوارئ</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>زر أحمر بارز لقطع تشغيل الآلة فورًا في أي حالة طارئة أو خطر مباشر.</p>
+        
+        
+      </div>
+    </div>
+    <div class="control-card tone-red" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="3" x2="12" y2="11"/><path d="M7 6a7 7 0 1 0 10 0"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">POWER (OFF/ON)</span>
+          <span class="cc-ar">المفتاح الرئيسي</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>المفتاح الرئيسي لتشغيل أو فصل مصدر الطاقة الكهربائية الواصل للوحة التحكم بالكامل.</p>
+        
+        
+      </div>
+    </div></div>
+
+    <h3 style="margin-top:34px;color:var(--roast-dark);display:flex;align-items:center;gap:8px;"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12,7 12,12 16,14"/></svg></span> مراحل بروفايل التحميص خطوة بخطوة</h3>
+    <div style="margin-top:14px;">
+    <div class="acc-item tone-flame open">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">1</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><path d="M12 3a2 2 0 0 0-2 2v8.3a4 4 0 1 0 4 0V5a2 2 0 0 0-2-2z"/><circle cx="12" cy="17.5" r="2" fill="currentColor" stroke="none"/><line x1="12" y1="7" x2="12" y2="13.5"/></svg></span>
+        <span class="acc-title">إعدادات التسخين (قبل تلقيم أول دفعة)</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p>قبل تنزيل أي قهوة، تُضبط الآلة على الإعدادات التالية لتسخين الاسطوانة والوصول لجاهزية التشغيل:</p>
+    <span class="tag">Temp Control = 200</span><span class="tag">Gas Pressure = 3500</span>
+    <span class="tag">Exhaust Fan = 20</span><span class="tag">Drum Speed = 48</span>
+    <p>سرعة الاسطوانة ٤٨ مناسبة لتحميص دفعة بحجم ~٣٠ كجم تقريبًا؛ تُعدَّل تناسبيًا إذا اختلف حجم الدفعة.</p></div></div>
+    </div>
+    <div class="acc-item tone-brown">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">2</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><path d="M12 3v10"/><polyline points="8,9 12,13 16,9"/><ellipse cx="12" cy="17" rx="7" ry="2.3"/><path d="M5 17v2.5c0 1.3 3.1 2.3 7 2.3s7-1 7-2.3V17"/></svg></span>
+        <span class="acc-title">التلقيم ونقطة التحول (Turning Point)</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p>تُنزَّل القهوة الخضراء الباردة إلى الاسطوانة الساخنة، فتنخفض درجة الحرارة المقروءة مؤقتًا لأن حرارة القهوة الباردة تسحب حرارة الاسطوانة، حتى تتساوى درجة حرارة الاسطوانة مع درجة حرارة القهوة عند ما يُعرف بـ<b>"نقطة التحول"</b> (Turning Point) — وهي أدنى نقطة يسجّلها منحنى الحرارة قبل أن يبدأ بالارتفاع مجددًا.</p>
+    <div class="callout tip"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16"/><circle cx="12" cy="7.5" r=".8" fill="currentColor" stroke="none"/></svg></span><div>عند الوصول إلى نقطة التحول تُرفع خانة الغاز إلى <b>٤٠٠٠</b> لإعادة بناء الزخم الحراري داخل الاسطوانة ومواصلة التحميص بانتظام.</div></div></div></div>
+    </div>
+    <div class="acc-item tone-brown">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">3</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><path d="M4 20C4 10 12 4 21 4c0 9-6 17-16 17H4v-1z"/><path d="M4 20c3-5 7-9 12-12"/></svg></span>
+        <span class="acc-title">مرحلة التجفيف والاصفرار (Drying/Yellowing)</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p>تفقد الحبة رطوبتها المتبقية ويتحول لونها تدريجيًا من الأخضر إلى الأصفر، مع بدء ظهور رائحة تشبه رائحة الخبز/الحبوب المحمصة.</p>
+    <span class="tag">Exhaust Fan ≈ 25</span>
+    <p>تُرفع سرعة مروحة السحب تقريبًا في هذه المرحلة لتصريف الرطوبة المتبخرة، مع الاستمرار بمتابعة اللون والرائحة حتى الاقتراب من الفرقعة الأولى (First Crack).</p></div></div>
+    </div>
+    <div class="acc-item tone-green">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">4</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 8l3 4-2 2 4 4M16 8l-2 3"/></svg></span>
+        <span class="acc-title">مرحلة التطوير (Development) والتفريغ</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p>بعد الفرقعة الأولى تبدأ مرحلة التطوير التي تحدد درجة التحميص النهائية. هنا:</p>
+    <ul>
+      <li>يُخفَّض ضغط الغاز تدريجيًا من ٤٠٠٠ إلى <b>٣٥٠٠</b> لضبط سرعة تطور اللون دون حرق السطح.</li>
+      <li>عند الوصول للون والرائحة المطلوبين: يُطفأ الحارق (زر IGNITION).</li>
+      <li>تُشغَّل COOLING ARM و COOLING FAN لبدء التبريد الفوري.</li>
+      <li>يُضغط زر DISCHARGE DRUM لتفريغ القهوة المحمّصة إلى حوض التبريد.</li>
+    </ul>
+    <div class="callout warn"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l10 18H2z"/><line x1="12" y1="10" x2="12" y2="15"/><circle cx="12" cy="18" r=".8" fill="currentColor" stroke="none"/></svg></span><div>الآلة مزوّدة بمستشعرات دقيقة تتابع درجة الحرارة والوقت خلال كل مرحلة من مراحل التحميص، لكن القرار النهائي بالتوقف يعتمد على تقييم اللون/الرائحة من المحمّص المسؤول.</div></div></div></div>
+    </div></div>
+  </div>
+</section>
+
+
+<section class="block" id="s-roastweel">
+  <div class="wrap">
+    <div class="sec-head"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2-1.6-2-3.4-2.4 1a7.7 7.7 0 0 0-1.8-1l-.4-2.6H9.2l-.4 2.6a7.7 7.7 0 0 0-1.8 1l-2.4-1-2 3.4L4.6 11a7.6 7.6 0 0 0 0 2l-2 1.6 2 3.4 2.4-1c.5.4 1.1.8 1.8 1l.4 2.6h5.6l.4-2.6c.7-.2 1.3-.6 1.8-1l2.4 1 2-3.4z"/></svg></span><h2>ماكينة ROASTWEEL</h2></div>
+    <p class="sec-sub">آلة تحميص <b>ذات اسطوانة مفردة</b>، تعمل بمنطق "قيم الإنذار" (Alarm Values) بدلًا من خانات منفصلة للحرارة والغاز، مما يجعل التحكم أبسط عبر رقمين أساسيين فقط.</p>
+
+    <div class="two-col">
+      <div>
+        
+    <div class="mill-panel roastweel-panel">
+      <div class="mp-displays">
+        <div class="mp-disp-box wide"><span class="lcd-screen" style="min-width:60px;color:#ffb144;text-shadow:0 0 6px #ffb14488;">120</span><span class="mp-name">ALARM VALUE ①</span></div>
+        <div class="mp-disp-box wide"><span class="lcd-screen" style="min-width:60px;color:#ff5b7a;text-shadow:0 0 6px #ff5b7a88;">50</span><span class="mp-name">ALARM VALUE ②</span></div>
+      </div>
+      <div class="rp-toggles">
+        <div class="rp-toggle-row"><div class="rp-toggle"><i></i></div><span>DRUM</span></div><div class="rp-toggle-row"><div class="rp-toggle"><i></i></div><span>MIXING</span></div><div class="rp-toggle-row"><div class="rp-toggle"><i></i></div><span>COOLING</span></div>
+        <div class="rp-toggle-row"><div class="rp-toggle"><i></i></div><span>FAN</span></div><div class="rp-toggle-row"><div class="rp-toggle"><i></i></div><span>LAMP</span></div><div class="rp-toggle-row"><div class="rp-toggle"><i></i></div><span>ELEVATOR</span></div>
+      </div>
+      <div class="mp-buttons-grid two">
+        <div class="btn3d-wrap">
+      <div class="btn3d" style="background:radial-gradient(circle at 35% 28%, #ff9d9d, #c0392b 65%, #7a1f17);"></div>
+      <div class="btn3d-label">BURNER</div>
+    </div>
+        <div class="btn3d-wrap">
+      <div class="btn3d" style="background:radial-gradient(circle at 35% 28%, #ffe9a8, #c98a1a 65%, #7a5410);"></div>
+      <div class="btn3d-label">AUTOMATIC</div>
+    </div>
+      </div>
+    </div>
+        <div class="illus-caption">تصميم توضيحي للوحة تحكم ROASTWEEL (رسم تخطيطي مطابق للتخطيط الفعلي للأزرار)</div>
+      </div>
+      <div class="info-panel">
+        <h3><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 15a8 8 0 1 1 16 0"/><line x1="12" y1="15" x2="15.5" y2="10.5"/><circle cx="12" cy="15" r="1.2" fill="currentColor" stroke="none"/></svg></span> إعدادات بدء التسخين (نظرة سريعة)</h3>
+        <div class="quick-table">
+          <div class="quick-cell"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3a2 2 0 0 0-2 2v8.3a4 4 0 1 0 4 0V5a2 2 0 0 0-2-2z"/><circle cx="12" cy="17.5" r="2" fill="currentColor" stroke="none"/><line x1="12" y1="7" x2="12" y2="13.5"/></svg></span><div class="qc-label">Alarm Value ① — حرارة</div><div class="qc-val">120</div></div>
+          <div class="quick-cell"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2c1 3-2 4-2 7a3 3 0 0 0 6 0c0-1-.5-2-1-2.5.5 2-1 3-1 3 .3-2-1.5-3-1-5.5C13.5 3 12 2 12 2z"/><path d="M8.5 13.5c0 3.5 2 6.5 5 6.5s5-2.5 5-5.8c0-1.6-.7-2.7-1.3-3.5.2 1.8-1 2.8-1 2.8.3-2.4-1.3-3.5-1.7-5.5-2 1.7-4 3-4 5.5-.5-.3-.7-1-1-2-.6.8-1 1.8-1 2z" fill="none"/></svg></span><div class="qc-label">Alarm Value ② — نار</div><div class="qc-val">50</div></div>
+        </div>
+        <p class="legend-note">عند وصول الحرارة إلى ١٢٠ يصدر صوت تنبيه يعني جاهزية الآلة. القيمتان تُعدَّلان لاحقًا حسب مرحلة التحميص (انظر الجدول الزمني أدناه).</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:34px;color:var(--roast-dark);display:flex;align-items:center;gap:8px;"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".6" fill="currentColor" stroke="none"/></svg></span> شرح كل جزء وزر في لوحة التحكم <small class="js-hint" style="font-size:13px;color:var(--muted);font-weight:500;">(اضغط على أي بطاقة لعرض التفاصيل)</small></h3>
+    <div class="grid cols-3" style="margin-top:14px;">
+    <div class="control-card tone-flame" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><path d="M4 15a8 8 0 1 1 16 0"/><line x1="12" y1="15" x2="15.5" y2="10.5"/><circle cx="12" cy="15" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">ALARM VALUE ①</span>
+          <span class="cc-ar">قيمة الإنذار الأولى — الحرارة</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>خانة رقمية تُحدَّد فيها درجة الحرارة الهدف. عند وصول الحرارة الفعلية إلى هذه القيمة يُصدر الجهاز صوت تنبيه يُعلم المشغّل بجاهزية الآلة أو باكتمال المرحلة.</p>
+        <div class="cc-setting"><span class="cc-setting-label">القيمة الموصى بها</span><span class="cc-setting-val">١٢٠ (عند التسخين قبل أول دفعة)</span></div>
+        
+      </div>
+    </div>
+    <div class="control-card tone-flame" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><path d="M12 2c1 3-2 4-2 7a3 3 0 0 0 6 0c0-1-.5-2-1-2.5.5 2-1 3-1 3 .3-2-1.5-3-1-5.5C13.5 3 12 2 12 2z"/><path d="M8.5 13.5c0 3.5 2 6.5 5 6.5s5-2.5 5-5.8c0-1.6-.7-2.7-1.3-3.5.2 1.8-1 2.8-1 2.8.3-2.4-1.3-3.5-1.7-5.5-2 1.7-4 3-4 5.5-.5-.3-.7-1-1-2-.6.8-1 1.8-1 2z" fill="none"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">ALARM VALUE ②</span>
+          <span class="cc-ar">قيمة الإنذار الثانية — النار</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>خانة رقمية تضبط شدة/درجة النار (البرنر) المرتبطة بمنطق الإنذار، وتُعدَّل صعودًا وهبوطًا مع تقدّم مراحل التحميص.</p>
+        <div class="cc-setting"><span class="cc-setting-label">القيمة الموصى بها</span><span class="cc-setting-val">٥٠ (عند التسخين) ← ٩٠ عند نقطة التحول ← ٥٠ عند التطوير</span></div>
+        
+      </div>
+    </div>
+    <div class="control-card tone-brown" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.5"/><path d="M5 6v12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6"/><line x1="7" y1="9" x2="17" y2="9" stroke-dasharray="1.5 1.8"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">DRUM (ON/OFF)</span>
+          <span class="cc-ar">الاسطوانة</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>مفتاح تشغيل/إيقاف دوران الاسطوانة الداخلية. يبقى في وضع التشغيل طوال دورة التحميص.</p>
+        
+        <p class="cc-extra">من الأجزاء الثابتة التشغيل أثناء التحميص: Drum + Burner + Fan معًا، ولا خيار لتغييرها بشكل منفصل أثناء الدورة.</p>
+      </div>
+    </div>
+    <div class="control-card tone-flame" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><path d="M12 2c1 3-2 4-2 7a3 3 0 0 0 6 0c0-1-.5-2-1-2.5.5 2-1 3-1 3 .3-2-1.5-3-1-5.5C13.5 3 12 2 12 2z"/><path d="M8.5 13.5c0 3.5 2 6.5 5 6.5s5-2.5 5-5.8c0-1.6-.7-2.7-1.3-3.5.2 1.8-1 2.8-1 2.8.3-2.4-1.3-3.5-1.7-5.5-2 1.7-4 3-4 5.5-.5-.3-.7-1-1-2-.6.8-1 1.8-1 2z" fill="none"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">BURNER</span>
+          <span class="cc-ar">الحارق</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>زر دائري لتشغيل حارق الغاz المسؤول عن توليد الحرارة داخل الاسطوانة، يعمل بالتنسيق مع قيمتَي الإنذار.</p>
+        
+        
+      </div>
+    </div>
+    <div class="control-card tone-fan" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><path d="M12 10.4c-.9-2-.6-4.8 1-6.2 1.7-1.4 3.6.2 3 2.3-.5 1.9-2.3 3.1-4 3.9zM12 13.6c.9 2 .6 4.8-1 6.2-1.7 1.4-3.6-.2-3-2.3.5-1.9 2.3-3.1 4-3.9zM10.4 12c-2 .9-4.8.6-6.2-1-1.4-1.7.2-3.6 2.3-3 1.9.5 3.1 2.3 3.9 4zM13.6 12c2-.9 4.8-.6 6.2 1 1.4 1.7-.2 3.6-2.3 3-1.9-.5-3.1-2.3-3.9-4z"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">FAN (ON/OFF)</span>
+          <span class="cc-ar">المروحة</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>مفتاح تشغيل/إيقاف مروحة سحب الهواء الساخن والدخان من غرفة التحميص، تعمل باستمرار أثناء التحميص جنبًا إلى جنب مع الاسطوانة والحارق.</p>
+        
+        
+      </div>
+    </div>
+    <div class="control-card tone-green" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5"/><path d="M20 12a8 8 0 0 1-14 5"/><polyline points="18,3 18,7 14,7"/><polyline points="6,21 6,17 10,17"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">MIXING (ON/OFF)</span>
+          <span class="cc-ar">التقليب</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>يُشغَّل أثناء تنزيل القهوة المحمّصة إلى حوض التبريد، لتقليبها وتوزيع الهواء البارد عليها بالتساوي أثناء التبريد.</p>
+        
+        
+      </div>
+    </div>
+    <div class="control-card tone-fan" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><line x1="4" y1="7" x2="20" y2="17"/><line x1="20" y1="7" x2="4" y2="17"/><line x1="12" y1="2" x2="9.5" y2="4.5"/><line x1="12" y1="2" x2="14.5" y2="4.5"/><line x1="12" y1="22" x2="9.5" y2="19.5"/><line x1="12" y1="22" x2="14.5" y2="19.5"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">COOLING (ON/OFF)</span>
+          <span class="cc-ar">التبريد</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>يُشغَّل بالتزامن مع MIXING عند تفريغ القهوة إلى حوض التبريد، لتسريع خفض حرارتها ووقف استمرار الطهي الداخلي.</p>
+        
+        
+      </div>
+    </div>
+    <div class="control-card tone-brown" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><rect x="8" y="3" width="8" height="18" rx="1"/><polyline points="9,9 12,6 15,9"/><polyline points="9,13 12,10 15,13"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">ELEVATOR (ON/OFF)</span>
+          <span class="cc-ar">الرافعة (المصعد)</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>يرفع القهوة الخضراء ويرسلها إلى الـ Hopper (الصندوق العلوي)، الذي تنزل منه القهوة بعد ذلك إلى الاسطوانة الداخلية لبدء التحميص.</p>
+        
+        
+      </div>
+    </div>
+    <div class="control-card tone-gold" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">LAMP (ON/OFF)</span>
+          <span class="cc-ar">المصباح</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>يُشغَّل طوال فترة التحميص لإضاءة داخل الاسطوانة، مما يتيح للمحمّص معاينة لون حبات القهوة بصريًا أثناء العملية دون الحاجة لفتحها.</p>
+        
+        
+      </div>
+    </div>
+    <div class="control-card tone-gold" onclick="this.classList.toggle('open')">
+      <div class="cc-head">
+        <span class="cc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2-1.6-2-3.4-2.4 1a7.7 7.7 0 0 0-1.8-1l-.4-2.6H9.2l-.4 2.6a7.7 7.7 0 0 0-1.8 1l-2.4-1-2 3.4L4.6 11a7.6 7.6 0 0 0 0 2l-2 1.6 2 3.4 2.4-1c.5.4 1.1.8 1.8 1l.4 2.6h5.6l.4-2.6c.7-.2 1.3-.6 1.8-1l2.4 1 2-3.4z"/></svg></span>
+        <div class="cc-titles">
+          <span class="cc-en">AUTOMATIC</span>
+          <span class="cc-ar">الوضع الآلي</span>
+        </div>
+        <span class="cc-chevron">▾</span>
+      </div>
+      <div class="cc-body">
+        <p>زر دائري يفعّل تحكّمًا آليًا في تشغيل/إيقاف الحارق بناءً على قيمتَي الإنذار المُدخلتين، بدلاً من مراقبته يدويًا طوال الوقت.</p>
+        
+        <p class="cc-extra">ملاحظة: وصف الوظيفة هنا استنتاج هندسي عام من طريقة عمل هذا النوع من لوحات التحكم؛ يُفضّل تأكيده من دليل المصنّع للتأكد من التفاصيل الدقيقة لسلوك هذا الوضع.</p>
+      </div>
+    </div></div>
+
+    <h3 style="margin-top:34px;color:var(--roast-dark);display:flex;align-items:center;gap:8px;"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12,7 12,12 16,14"/></svg></span> مراحل بروفايل التحميص خطوة بخطوة</h3>
+    <div style="margin-top:14px;">
+    <div class="acc-item tone-flame open">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">1</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="3" x2="12" y2="11"/><path d="M7 6a7 7 0 1 0 10 0"/></svg></span>
+        <span class="acc-title">تشغيل وتسخين الآلة</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p>الخطوات: فتح صمام الغاز ← تشغيل مصدر الطاقة الكهربائية. هذه آلة ذات اسطوانة مفردة ولها إعداداتها الخاصة عبر قيمتَي الإنذار:</p>
+    <span class="tag">ALARM VALUE ① (الحرارة) = 120</span><span class="tag">ALARM VALUE ② (النار) = 50</span>
+    <p>عند وصول درجة الحرارة إلى ١٢٠ يُصدر الجهاز صوت تنبيه، وهذا يعني أن الآلة جاهزة لاستقبال أول دفعة تحميص.</p></div></div>
+    </div>
+    <div class="acc-item tone-brown">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">2</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><path d="M4 20C4 10 12 4 21 4c0 9-6 17-16 17H4v-1z"/><path d="M4 20c3-5 7-9 12-12"/></svg></span>
+        <span class="acc-title">التلقيم وبدء التحميص</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p>بعد التأكد من كثافة ورطوبة القهوة الخضراء (باستخدام جهاز MD-500)، تُوضع القهوة داخل المحمّصة عبر تشغيل <b>ELEVATOR</b> لرفعها إلى الـ Hopper العلوي ثم نزولها للاسطوانة الداخلية، وتُضبط إعدادات البروفايل المناسبة لأول دفعة.</p>
+    <p>الأجزاء التي يجب أن تكون شغّالة طوال هذه المرحلة: <span class="tag">Drum</span><span class="tag">Burner</span><span class="tag">Fan</span> (لا خيار لتغييرها بشكل منفصل).</p></div></div>
+    </div>
+    <div class="acc-item tone-brown">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">3</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><path d="M4 15a8 8 0 1 1 16 0"/><line x1="12" y1="15" x2="15.5" y2="10.5"/><circle cx="12" cy="15" r="1.2" fill="currentColor" stroke="none"/></svg></span>
+        <span class="acc-title">بداية الدورة ونقطة التحول</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p>في أول الوقت (فور تنزيل القهوة) تكون الإعدادات: <span class="tag">النار = 50</span><span class="tag">الحرارة = 120</span>.</p>
+    <p>مع نزول القهوة الباردة تنخفض حرارة الاسطوانة حتى تصل إلى نقطة الالتقاء (نقطة التحول) حيث تتساوى حرارة الاسطوانة مع حرارة القهوة. عندها تُغيَّر الإعدادات إلى:</p>
+    <span class="tag">النار = 90</span><span class="tag">الحرارة = 150</span>
+    <p>وتستمر عملية التحميص مع التأكد من أنها تسير بالشكل الصحيح حتى الوصول إلى مرحلة التطوير.</p></div></div>
+    </div>
+    <div class="acc-item tone-green">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">4</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 8l3 4-2 2 4 4M16 8l-2 3"/></svg></span>
+        <span class="acc-title">مرحلة التطوير والتفريغ</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p>عند الاقتراب من اللون والرائحة المطلوبين: تُخفَّض درجة النار مجددًا إلى <b>٥٠</b>، ثم:</p>
+    <ul>
+      <li>تُشغَّل <b>MIXING</b> و <b>COOLING</b>.</li>
+      <li>يُطفأ الحارق (BURNER).</li>
+      <li>تُنزَّل القهوة المحمّصة إلى حوض التبريد.</li>
+    </ul>
+    <p>بعد ذلك تُفحص درجة حرارة البُنّ المحمّص بجهاز مخصص، ثم تُوضع الكمية المحصّلة في إناء قياس وتُخزَّن في المكان المناسب — وبهذا تكتمل دورة تحميص الدفعة الأولى.</p></div></div>
+    </div></div>
+  </div>
+</section>
+
+
+<section class="block" id="s-compare">
+  <div class="wrap">
+    <div class="sec-head"><span class="ic"><svg viewBox="0 0 24 24"><line x1="12" y1="3" x2="12" y2="21"/><line x1="5" y1="7" x2="19" y2="7"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/><path d="M9 21h6"/></svg></span><h2>مقارنة بين MILL CITY و ROASTWEEL</h2></div>
+    <p class="sec-sub">مقارنة سريعة تساعد فريق التشغيل على التبديل بين الآلتين دون التباس، خصوصًا أن فلسفة التحكم مختلفة بينهما.</p>
+    <div class="table-scroll">
+    <table class="cmp">
+      <tr><th>المعيار</th><th>MILL CITY</th><th>ROASTWEEL</th></tr>
+      <tr><td>نوع الاسطوانة</td><td>مزدوجة</td><td>مفردة</td></tr>
+      <tr><td>وضع تحكم باب الاسطوانة</td><td>يفتح تلقائيًا عند وصول درجة الحرارة إلى القيمة المضبوطة في بداية التحميص</td><td>—</td></tr>
+      <tr><td>منطق التحكم</td><td>خانات منفصلة (حرارة / غاز / مروحة / سرعة اسطوانة)</td><td>قيمتا إنذار (Alarm Value ①②) للحرارة والنار</td></tr>
+      <tr><td>إعداد الحرارة عند التسخين</td><td>Temp Control = 200</td><td>Alarm Value① = 120</td></tr>
+      <tr><td>إعداد النار عند التسخين</td><td>Gas Pressure = 3500</td><td>Alarm Value② = 50</td></tr>
+      <tr><td>إعداد عند نقطة التحول</td><td>Gas Pressure → 4000</td><td>Alarm② → 90 / Alarm① → 150</td></tr>
+      <tr><td>إعداد مرحلة التطوير</td><td>Gas Pressure → 3500</td><td>Alarm② → 50</td></tr>
+      <tr><td>التحكم بسرعة المروحة والاسطوانة</td><td>خانتان منفصلتان قابلتان للتعديل</td><td>مفتاح تشغيل/إيقاف فقط (لا تعديل سرعة)</td></tr>
+      <tr><td>تلقيم القهوة الخضراء</td><td>زر Charge Drum مباشر</td><td>عبر Elevator إلى Hopper علوي ثم للاسطوانة</td></tr>
+      <tr><td>مراقبة اللون أثناء التحميص</td><td>بصريًا / حسب الخبرة</td><td>مصباح LAMP داخلي للمعاينة المباشرة</td></tr>
+      <tr><td>التبريد بعد التفريغ</td><td>Cooling Fan + Cooling Arm</td><td>Mixing + Cooling</td></tr>
+      <tr><td>وضع تحكم آلي</td><td>غير مذكور صراحة في اللوحة</td><td>زر AUTOMATIC مخصص</td></tr>
+    </table>
+    </div>
+  </div>
+</section>
+
+
+<section class="block" id="s-stages">
+  <div class="wrap">
+    <div class="sec-head"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12,7 12,12 16,14"/></svg></span><h2>مراحل التحميص العامة — إضافة من خبرة الصناعة</h2></div>
+    <p class="sec-sub">هذا الإطار عام ومعروف في صناعة تحميص القهوة عالميًا، ولا يُغني عن إعدادات آلتَي المصنع الموضّحة أعلاه، بل يساعد على فهم "لماذا" تُضبط الإعدادات بهذا الشكل في كل مرحلة.</p>
+    
+    <div class="acc-item tone-brown open">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">1</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg></span>
+        <span class="acc-title">مرحلة التجفيف (Drying Phase)</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p>أول وأطول مرحلة عادة (قد تستغرق ٤٠–٥٠٪ من زمن التحميص الكلي). تتبخر الرطوبة المتبقية في الحبة الخضراء (~٩–١٢٪) دون أي تفاعل كيميائي يُذكر بعد. اللون يبقى أخضر ثم يميل تدريجيًا للأصفر الباهت، والرائحة تشبه رائحة العشب أو الحبوب النيئة.</p></div></div>
+    </div>
+    <div class="acc-item tone-brown">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">2</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><path d="M4 20C4 10 12 4 21 4c0 9-6 17-16 17H4v-1z"/><path d="M4 20c3-5 7-9 12-12"/></svg></span>
+        <span class="acc-title">الاصفرار وتفاعل ميلارد (Maillard Reaction)</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p>يتحول لون الحبة من الأصفر إلى البني الفاتح، وتبدأ رائحة تشبه الخبز المحمّص أو التوست بالظهور. هذه المرحلة هي بداية التفاعلات الكيميائية بين السكريات والأحماض الأمينية التي تبني الطعم النهائي للقهوة.</p></div></div>
+    </div>
+    <div class="acc-item tone-flame">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">3</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 8l3 4-2 2 4 4M16 8l-2 3"/></svg></span>
+        <span class="acc-title">الفرقعة الأولى (First Crack)</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p>مع استمرار ارتفاع الحرارة الداخلية، يتمدد البخار المحتبس داخل الحبة فتُصدر صوت "طقطقة" يشبه صوت الفشار (Popcorn). هذه اللحظة علامة فارقة يُبنى عليها توقيت بقية مراحل التحميص، وتُعتبر الحد الأدنى لتحميص يمكن استهلاكه (تحميص فاتح جدًا/City Roast).</p></div></div>
+    </div>
+    <div class="acc-item tone-green">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">4</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12,7 12,12 16,14"/></svg></span>
+        <span class="acc-title">مرحلة التطوير (Development Time)</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p>الفترة الممتدة من الفرقعة الأولى وحتى لحظة التفريغ. طول هذه المرحلة ونسبتها من الزمن الكلي (Development Time Ratio) يحددان الملامح النهائية للطعم: أقصر = حموضة أوضح وتحميص أفتح، أطول = حلاوة وجسم أثقل وتحميص أغمق.</p>
+    <span class="tag">فاتح (Light)</span><span class="tag">متوسط (Medium)</span><span class="tag">داكن (Dark)</span></div></div>
+    </div>
+    <div class="acc-item tone-red">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">5</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><path d="M12 3l10 18H2z"/><line x1="12" y1="10" x2="12" y2="15"/><circle cx="12" cy="18" r=".8" fill="currentColor" stroke="none"/></svg></span>
+        <span class="acc-title">تحذير: الفرقعة الثانية (Second Crack)</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p>إذا استمر التحميص بعد الفرقعة الأولى لفترة طويلة، تبدأ فرقعة ثانية أخفت صوتًا وأسرع تتابعًا، ناتجة عن انكسار الجدار الخلوي للحبة وخروج الزيوت لسطحها. تجاوز هذه المرحلة كثيرًا يعني تحميصًا داكنًا جدًا مع خطر الاحتراق وفقدان الطابع المميز لمنشأ البُنّ.</p></div></div>
+    </div>
+    <div class="acc-item tone-fan">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">6</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><line x1="4" y1="7" x2="20" y2="17"/><line x1="20" y1="7" x2="4" y2="17"/><line x1="12" y1="2" x2="9.5" y2="4.5"/><line x1="12" y1="2" x2="14.5" y2="4.5"/><line x1="12" y1="22" x2="9.5" y2="19.5"/><line x1="12" y1="22" x2="14.5" y2="19.5"/></svg></span>
+        <span class="acc-title">التبريد الفوري (Quenching)</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p>بمجرد الوصول للون/الرائحة المستهدفين يجب تفريغ القهوة وتبريدها فورًا (عادة خلال ٣–٥ دقائق) لإيقاف "الطهي الاستمراري" الناتج عن الحرارة المتبقية داخل الحبة (Carryover Cooking)، وإلا استمر التحميص فعليًا داخل حوض التبريد.</p></div></div>
+    </div>
+    <div class="callout tip"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16"/><circle cx="12" cy="7.5" r=".8" fill="currentColor" stroke="none"/></svg></span><div><b>نسبة الفقد في الوزن (Roast Loss):</b> معلومة عامة تقريبية — التحميص الفاتح يفقد عادة نحو ١٢–١٤٪ من وزن البُنّ الأخضر (رطوبة بشكل أساسي)، بينما التحميص الداكن قد يصل الفقد فيه إلى ١٦–٢٠٪ (رطوبة + بعض الكتلة الجافة مع تصاعد الزيوت). متابعة هذه النسبة دفعة بعد أخرى مؤشر جيد على ثبات الجودة.</div></div>
+  </div>
+</section>
+
+
+<section class="block" id="s-roastlevels">
+  <div class="wrap">
+    <div class="sec-head"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 20C4 10 12 4 21 4c0 9-6 17-16 17H4v-1z"/><path d="M4 20c3-5 7-9 12-12"/></svg></span><h2>درجات التحميص — مرجع صناعي عام</h2></div>
+    <p class="sec-sub">دليل مرئي لأربع درجات تحميص أساسية، مبني على مراجع صناعة القهوة العالمية (درجات حرارة الحبة الداخلية التقريبية)، لمساعدة المحمّص على ربط اللون بالنكهة المتوقعة والقرار بوقف التحميص.</p>
+    <div class="roast-strip"><div class="roast-card">
+    <svg viewBox="0 0 64 64" class="bean-icon" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="bg37" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#d9b483"/><stop offset="1" stop-color="#a9793a"/>
+      </linearGradient></defs>
+      <path d="M32 6C18 6 6 18 6 32c0 14 12 26 26 26 10 0 18-8 18-18 0-6-3-10-3-16 0-10-6-18-15-18z" fill="url(#bg37)"/>
+      <path d="M32 12c-4 8-4 8 0 16s4 8 0 16" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".55"/>
+      <ellipse cx="22" cy="20" rx="6" ry="4" fill="#ffffff" opacity=".25"/>
+    </svg>
+    <h4>تحميص فاتح</h4>
+    <span class="rc-en">Light</span>
+    <span class="rc-temp">205–210°C</span>
+    <p>حموضة عالية ونكهات فاكهية وزهرية واضحة، سطح جاف بدون زيوت. يُوقَف التحميص بعد الفرقعة الأولى بقليل.</p>
+  </div><div class="roast-card">
+    <svg viewBox="0 0 64 64" class="bean-icon" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="bg38" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#a9793a"/><stop offset="1" stop-color="#6b3f1d"/>
+      </linearGradient></defs>
+      <path d="M32 6C18 6 6 18 6 32c0 14 12 26 26 26 10 0 18-8 18-18 0-6-3-10-3-16 0-10-6-18-15-18z" fill="url(#bg38)"/>
+      <path d="M32 12c-4 8-4 8 0 16s4 8 0 16" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".55"/>
+      <ellipse cx="22" cy="20" rx="6" ry="4" fill="#ffffff" opacity=".25"/>
+    </svg>
+    <h4>تحميص متوسط</h4>
+    <span class="rc-en">Medium</span>
+    <span class="rc-temp">210–219°C</span>
+    <p>توازن بين الحموضة والحلاوة والجسم — الأكثر شيوعًا للتقطير (Filter) وقهوة الإسبريسو المتوازنة.</p>
+  </div><div class="roast-card">
+    <svg viewBox="0 0 64 64" class="bean-icon" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="bg39" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#6b3f1d"/><stop offset="1" stop-color="#3f2313"/>
+      </linearGradient></defs>
+      <path d="M32 6C18 6 6 18 6 32c0 14 12 26 26 26 10 0 18-8 18-18 0-6-3-10-3-16 0-10-6-18-15-18z" fill="url(#bg39)"/>
+      <path d="M32 12c-4 8-4 8 0 16s4 8 0 16" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".55"/>
+      <ellipse cx="22" cy="20" rx="6" ry="4" fill="#ffffff" opacity=".25"/>
+    </svg>
+    <h4>تحميص متوسط غامق</h4>
+    <span class="rc-en">Medium-Dark</span>
+    <span class="rc-temp">219–225°C</span>
+    <p>بداية ظهور نكهات الكراميل والشوكولاتة، جسم أثقل، بصيص زيت خفيف يبدأ بالظهور، يقترب من الفرقعة الثانية.</p>
+  </div><div class="roast-card">
+    <svg viewBox="0 0 64 64" class="bean-icon" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="bg40" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#3f2313"/><stop offset="1" stop-color="#160c07"/>
+      </linearGradient></defs>
+      <path d="M32 6C18 6 6 18 6 32c0 14 12 26 26 26 10 0 18-8 18-18 0-6-3-10-3-16 0-10-6-18-15-18z" fill="url(#bg40)"/>
+      <path d="M32 12c-4 8-4 8 0 16s4 8 0 16" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".55"/>
+      <ellipse cx="22" cy="20" rx="6" ry="4" fill="#ffffff" opacity=".25"/>
+    </svg>
+    <h4>تحميص غامق</h4>
+    <span class="rc-en">Dark</span>
+    <span class="rc-temp">225–230°C</span>
+    <p>سطح زيتي لامع ونكهة تحميص واضحة ومرارة أقوى. يُوقَف التحميص فورًا بعد بداية الفرقعة الثانية لتفادي الاحتراق.</p>
+  </div></div>
+    <div class="callout tip"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16"/><circle cx="12" cy="7.5" r=".8" fill="currentColor" stroke="none"/></svg></span><div><b>ملاحظة:</b> هذه المدرجات الأربع هي الأكثر استخدامًا تجاريًا؛ توجد درجات أدق بينية مثل "Cinnamon" (أفتح من الفاتح) و"French/Italian" (أغمق من الغامق) تُستخدم في بعض الأسواق المتخصصة. درجات الحرارة هنا تقريبية وتُقاس من داخل الحبة وليس من الهواء المحيط، وقد تختلف قليلًا حسب دقة مسبار الحرارة في كل آلة.</div></div>
+  </div>
+</section>
+
+
+<section class="block" id="s-troubleshoot">
+  <div class="wrap">
+    <div class="sec-head"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l10 18H2z"/><line x1="12" y1="10" x2="12" y2="15"/><circle cx="12" cy="18" r=".8" fill="currentColor" stroke="none"/></svg></span><h2>حلول سريعة: استكشاف الأعطال وإصلاحها</h2></div>
+    <p class="sec-sub">أشيع أربع مشكلات في جودة التحميص وسلامته، مع الأسباب المحتملة والحلول المقترحة — معلومات عامة من خبرة الصناعة، اضغط على أي بطاقة لعرض التفاصيل.</p>
+    
+    <div class="acc-item tone-red open">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">1</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><path d="M12 3l10 18H2z"/><line x1="12" y1="10" x2="12" y2="15"/><circle cx="12" cy="18" r=".8" fill="currentColor" stroke="none"/></svg></span>
+        <span class="acc-title">تحميص غير متجانس (وجوه فاتحة وغامقة)</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p><b>الأسباب المحتملة:</b></p>
+    <ul>
+      <li>حجم الدفعة أكبر من الطاقة الاستيعابية الموصى بها للاسطوانة (~30 كجم).</li>
+      <li>عدم انتظام دوران الاسطوانة (سرعة منخفضة جدًا أو تذبذب في المحرك).</li>
+      <li>حبوب بأحجام متفاوتة جدًا (غير مفروزة) قبل التحميص.</li>
+    </ul>
+    <p><b>الحل:</b></p>
+    <ul>
+      <li>الالتزام بحجم الدفعة القياسي الموصى به لكل آلة.</li>
+      <li>فحص انتظام سرعة الاسطوانة (Drum Speed) دوريًا.</li>
+      <li>فرز الحبوب حسب الحجم قبل التحميص إن كان ذلك متاحًا في خط الإنتاج.</li>
+    </ul></div></div>
+    </div>
+    <div class="acc-item tone-red">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">2</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><path d="M4 20C4 10 12 4 21 4c0 9-6 17-16 17H4v-1z"/><path d="M4 20c3-5 7-9 12-12"/></svg></span>
+        <span class="acc-title">طعم عشبي أو نيء (Underdeveloped)</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p><b>الأسباب المحتملة:</b></p>
+    <ul>
+      <li>إنهاء التحميص مبكرًا جدًا، قبل اكتمال مدة التطوير (Development Time) الكافية بعد الفرقعة الأولى.</li>
+      <li>درجة حرارة بداية منخفضة جدًا لنوع/رطوبة القهوة المستخدمة.</li>
+      <li>عدم تعديل البروفايل بناءً على نتيجة فحص رطوبة القهوة الخضراء (جهاز MD-500).</li>
+    </ul>
+    <p><b>الحل:</b></p>
+    <ul>
+      <li>التأكد من انتظار وقت تطوير كافٍ بعد الفرقعة الأولى قبل الضغط على Discharge.</li>
+      <li>رفع درجة حرارة/ضغط الغاز في بداية الدفعة القادمة تدريجيًا.</li>
+      <li>مطابقة البروفايل المستخدم مع نتيجة فحص الرطوبة والكثافة قبل البدء.</li>
+    </ul></div></div>
+    </div>
+    <div class="acc-item tone-red">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">3</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><path d="M12 2c1 3-2 4-2 7a3 3 0 0 0 6 0c0-1-.5-2-1-2.5.5 2-1 3-1 3 .3-2-1.5-3-1-5.5C13.5 3 12 2 12 2z"/><path d="M8.5 13.5c0 3.5 2 6.5 5 6.5s5-2.5 5-5.8c0-1.6-.7-2.7-1.3-3.5.2 1.8-1 2.8-1 2.8.3-2.4-1.3-3.5-1.7-5.5-2 1.7-4 3-4 5.5-.5-.3-.7-1-1-2-.6.8-1 1.8-1 2z" fill="none"/></svg></span>
+        <span class="acc-title">طعم محروق أو مدخّن (Baked / Scorched)</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p>هذان عيبان مختلفان بنفس الشكوى العامة "طعم محروق":</p>
+    <ul>
+      <li><b>Baked (مسطّح/محروق حراريًا):</b> تحميص بطيء جدًا لفترة طويلة بحرارة منخفضة، ما يُفقد القهوة حيويتها ونكهاتها فتخرج "مسطّحة" بلا حموضة أو حلاوة واضحة.</li>
+      <li><b>Scorched (محروق سطحيًا/مدخّن):</b> ملامسة مباشرة للهب أو نقطة ساخنة على سطح الاسطوانة، فيحترق سطح الحبة قبل أن ينضج الداخل، بطعم دخاني حاد ومرارة لاذعة.</li>
+    </ul>
+    <p><b>الحل:</b></p>
+    <ul>
+      <li>لتفادي Baked: تقصير مرحلة التجفيف أو رفع الحرارة تدريجيًا بدل التحميص البطيء المفرط.</li>
+      <li>لتفادي Scorched: خفض شدة النار في بداية الدفعة، والتأكد من انتظام دوران الاسطوانة لمنع تكوّن نقاط ساخنة ثابتة.</li>
+      <li>تنظيف الاسطوانة بانتظام من تراكم الزيوت المتفحّمة على جدارها الداخلي.</li>
+    </ul></div></div>
+    </div>
+    <div class="acc-item tone-red">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">4</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><path d="M12 3l10 18H2z"/><line x1="12" y1="10" x2="12" y2="15"/><circle cx="12" cy="18" r=".8" fill="currentColor" stroke="none"/></svg></span>
+        <span class="acc-title">تراكم القشور (Chaff) واحتمال الحريق</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p><b>الأسباب المحتملة:</b></p>
+    <ul>
+      <li>عدم تفريغ صندوق القشور بانتظام (يوميًا).</li>
+      <li>سرعة مروحة السحب (Exhaust Fan) أقل من الإعداد الموصى به لمرحلة التحميص الحالية.</li>
+      <li>إهمال تنظيف مجرى الهواء والمروحة أسبوعيًا.</li>
+    </ul>
+    <div class="callout warn"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l10 18H2z"/><line x1="12" y1="10" x2="12" y2="15"/><circle cx="12" cy="18" r=".8" fill="currentColor" stroke="none"/></svg></span><div>القشور مادة عالية القابلية للاشتعال بسبب صغر حجمها ومساحة سطحها الكبيرة نسبةً لوزنها — تراكمها قرب مصدر حرارة (الحارق) من أشيع أسباب حرائق مصانع التحميص عالميًا. هذا تحذير عام من صناعة التحميص، ويجب ربطه دائمًا بتعليمات السلامة الرسمية للمصنع.</div></div>
+    <p><b>الحل:</b></p>
+    <ul>
+      <li>تفريغ صندوق القشور يوميًا (انظر جدول الصيانة أدناه).</li>
+      <li>التأكد من ضبط سرعة مروحة السحب على القيمة الموصى بها.</li>
+      <li>عدم ترك الآلة تعمل دون مراقبة، وتوفير طفاية حريق مناسبة (مسحوق جاف أو CO2) بجانب منطقة التحميص دائمًا.</li>
+    </ul></div></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="block" id="s-maintenance">
+  <div class="wrap">
+    <div class="sec-head"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2-1.6-2-3.4-2.4 1a7.7 7.7 0 0 0-1.8-1l-.4-2.6H9.2l-.4 2.6a7.7 7.7 0 0 0-1.8 1l-2.4-1-2 3.4L4.6 11a7.6 7.6 0 0 0 0 2l-2 1.6 2 3.4 2.4-1c.5.4 1.1.8 1.8 1l.4 2.6h5.6l.4-2.6c.7-.2 1.3-.6 1.8-1l2.4 1 2-3.4z"/></svg></span><h2>التنظيف والصيانة الدورية</h2></div>
+    <p class="sec-sub">الالتزام بجدول صيانة منتظم هو أفضل وقاية من معظم المشكلات الواردة في قسم "استكشاف الأعطال" أعلاه، وخصوصًا خطر حرائق القشور.</p>
+    <div class="maint-grid">
+      <div class="maint-card daily">
+        <h4><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12,7 12,12 16,14"/></svg></span> يوميًا (بعد كل نوبة تشغيل)</h4>
+        <ul>
+          <li><span class="dot"></span>تفريغ صندوق القشور (Chaff)</li>
+          <li><span class="dot"></span>تنظيف حوض التبريد من بقايا القهوة</li>
+          <li><span class="dot"></span>مسح لوحة التحكم والزجاج</li>
+        </ul>
+      </div>
+      <div class="maint-card weekly">
+        <h4><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><path d="M12 10.4c-.9-2-.6-4.8 1-6.2 1.7-1.4 3.6.2 3 2.3-.5 1.9-2.3 3.1-4 3.9zM12 13.6c.9 2 .6 4.8-1 6.2-1.7 1.4-3.6-.2-3-2.3.5-1.9 2.3-3.1 4-3.9zM10.4 12c-2 .9-4.8.6-6.2-1-1.4-1.7.2-3.6 2.3-3 1.9.5 3.1 2.3 3.9 4zM13.6 12c2-.9 4.8-.6 6.2 1 1.4 1.7-.2 3.6-2.3 3-1.9-.5-3.1-2.3-3.9-4z"/></svg></span> أسبوعيًا</h4>
+        <ul>
+          <li><span class="dot"></span>تنظيف مجرى الهواء ومروحة السحب</li>
+          <li><span class="dot"></span>فحص وصلات الغاز من أي تسريب</li>
+          <li><span class="dot"></span>تشحيم المحامل حسب توصية الشركة المصنّعة</li>
+        </ul>
+      </div>
+      <div class="maint-card monthly">
+        <h4><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".6" fill="currentColor" stroke="none"/></svg></span> شهريًا</h4>
+        <ul>
+          <li><span class="dot"></span>تنظيف المدخنة من تراكم الزيوت</li>
+          <li><span class="dot"></span>معايرة مسبار الحرارة</li>
+          <li><span class="dot"></span>فحص أحزمة (سيور) المحرك</li>
+        </ul>
+      </div>
+    </div>
+    <div class="legend-note">هذا جدول استرشادي عام؛ يجب مطابقته مع دليل الصيانة الخاص بكل آلة ومع سجل الصيانة الرسمي المعتمد في المصنع.</div>
+  </div>
+</section>
+
+
+<section class="block" id="s-glossary">
+  <div class="wrap">
+    <div class="sec-head"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16"/><circle cx="12" cy="7.5" r=".8" fill="currentColor" stroke="none"/></svg></span><h2>مسرد المصطلحات</h2></div>
+    <p class="sec-sub js-hint">اضغط على أي بطاقة لعرض شرح المصطلح.</p>
+    <div class="grid cols-4">
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front"><span>Charge</span><small class="js-hint">اضغط لعرض المعنى</small></div>
+        <div class="flip-back"><span>لحظة تنزيل/تلقيم القهوة الخضراء داخل الاسطوانة لبدء دورة تحميص جديدة.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front"><span>Discharge</span><small class="js-hint">اضغط لعرض المعنى</small></div>
+        <div class="flip-back"><span>لحظة إخراج القهوة المحمّصة من الاسطوانة إلى حوض التبريد بعد انتهاء التحميص.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front"><span>Turning Point</span><small class="js-hint">اضغط لعرض المعنى</small></div>
+        <div class="flip-back"><span>نقطة التحول — أدنى درجة حرارة تُسجَّل بعد تلقيم القهوة الباردة، قبل أن تبدأ الحرارة بالارتفاع مجددًا.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front"><span>Profile</span><small class="js-hint">اضغط لعرض المعنى</small></div>
+        <div class="flip-back"><span>البروفايل — مجموعة الإعدادات (حرارة/نار/مدة) المخطَّطة لتحميص دفعة معينة بناءً على نوع البُنّ ورطوبته.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front"><span>Alarm Value</span><small class="js-hint">اضغط لعرض المعنى</small></div>
+        <div class="flip-back"><span>قيمة الإنذار — رقم مستهدف (حرارة أو نار) يُصدر الجهاز تنبيهًا صوتيًا عند الوصول إليه.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front"><span>Development Time</span><small class="js-hint">اضغط لعرض المعنى</small></div>
+        <div class="flip-back"><span>مدة التطوير — الفترة من الفرقعة الأولى وحتى التفريغ، تحدد درجة التحميص النهائية.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front"><span>Roast Loss</span><small class="js-hint">اضغط لعرض المعنى</small></div>
+        <div class="flip-back"><span>نسبة الفقد في الوزن بين البُنّ الأخضر والمحمّص، نتيجة تبخّر الرطوبة والمواد الطيّارة.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front"><span>Hopper</span><small class="js-hint">اضغط لعرض المعنى</small></div>
+        <div class="flip-back"><span>الصندوق/القمع العلوي الذي يُخزَّن فيه البُنّ الأخضر مؤقتًا قبل نزوله إلى الاسطوانة.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front"><span>Elevator</span><small class="js-hint">اضغط لعرض المعنى</small></div>
+        <div class="flip-back"><span>الرافعة الميكانيكية التي تنقل البُنّ الأخضر إلى الـ Hopper العلوي في آلة ROASTWEEL.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front"><span>Chaff</span><small class="js-hint">اضغط لعرض المعنى</small></div>
+        <div class="flip-back"><span>القشور الرقيقة التي تنفصل عن حبة البُنّ أثناء التحميص وتُسحب عبر مروحة العادم.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front"><span>Baked</span><small class="js-hint">اضغط لعرض المعنى</small></div>
+        <div class="flip-back"><span>عيب تحميص ناتج عن حرارة منخفضة لفترة طويلة جدًا، يُنتج طعمًا مسطّحًا بلا حموضة أو حلاوة واضحة.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front"><span>Scorched</span><small class="js-hint">اضغط لعرض المعنى</small></div>
+        <div class="flip-back"><span>عيب تحميص ناتج عن ملامسة مباشرة للهب أو نقطة ساخنة، يحرق سطح الحبة قبل نضج الداخل بطعم دخاني حاد.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front"><span>Agtron</span><small class="js-hint">اضغط لعرض المعنى</small></div>
+        <div class="flip-back"><span>مقياس رقمي معياري للون التحميص (Agtron Scale) يُستخدم لتوحيد وصف درجة التحميص بين المحامص المختلفة.</span></div>
+      </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front"><span>Resting / Degassing</span><small class="js-hint">اضغط لعرض المعنى</small></div>
+        <div class="flip-back"><span>فترة راحة القهوة المحمّصة (عادة 12–48 ساعة) لتصريف غاز CO2 المحتبس قبل التعبئة أو التقطير المثالي.</span></div>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+
+<footer class="pagefoot">
+  ☕ مصنع القهوة — دليل تشغيل قسم التحميص · أُعِدّ استنادًا لملاحظات التشغيل اليدوية، مع رسوم توضيحية مصمَّمة (وليست صورًا فعلية) للآلات ولوحات التحكم، وإضافات توضيحية عامة من خبرة صناعة التحميص حيثما أُشير إلى ذلك.
+  <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);max-width:520px;margin-inline:auto;font-size:12.5px;">
+    إعداد وتوثيق: <b style="color:var(--roast-dark);">محمود نورو</b> — قسم الجودة والإنتاج<br>
+    الإصدار 1.0 · جميع الحقوق محفوظة لمصنع القهوة
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  var links = document.querySelectorAll(".nav a");
+  var sections = Array.from(links).map(function(l){return document.querySelector(l.getAttribute("href"));});
+  function onScroll(){
+    var pos = window.scrollY + 90;
+    var current = sections[0];
+    sections.forEach(function(s){ if(s && s.offsetTop <= pos) current = s; });
+    links.forEach(function(l){ l.classList.toggle("active", l.getAttribute("href") === "#"+current.id); });
+  }
+  window.addEventListener("scroll", onScroll);
+  onScroll();
+});
+</script>
+</body>
+</html>
