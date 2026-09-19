@@ -250,6 +250,20 @@ footer.pagefoot{text-align:center;color:var(--muted);font-size:13px;padding:30px
 .maint-card.weekly .dot{background:var(--fan);}
 .maint-card.monthly .dot{background:var(--green);}
 
+/* ROASTING TRIANGLE */
+.tri-svg{width:100%;max-width:480px;display:block;margin:0 auto;}
+.tri-legend{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px;}
+.tri-leg-item{text-align:center;padding:10px;}
+.tri-leg-item .ic svg{width:26px;height:26px;}
+.tri-leg-item.heat .ic{color:var(--flame);} .tri-leg-item.drum .ic{color:var(--roast);} .tri-leg-item.air .ic{color:var(--fan);}
+.tri-leg-item b{display:block;font-size:14px;color:var(--roast-dark);margin-top:4px;}
+.tri-leg-item small{color:var(--muted);font-size:11px;direction:ltr;display:block;}
+.tri-machine-map{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px;}
+.tri-machine-map .tmm-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);}
+.tri-machine-map .tmm-card h5{margin:0 0 8px;color:var(--roast-dark);font-size:14.5px;}
+.tri-machine-map .tmm-card ul{margin:0;padding-inline-start:18px;font-size:13px;}
+.tri-machine-map .tmm-card li{margin-bottom:5px;}
+
 /* TABLE SCROLL WRAPPER (mobile) */
 .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px;}
 .table-scroll table.cmp{min-width:640px;}
@@ -277,6 +291,8 @@ footer.pagefoot{text-align:center;color:var(--muted);font-size:13px;padding:30px
   .strip .seg:not(:last-child)::after{display:none;}
   table.cmp th, table.cmp td{font-size:12.5px;padding:9px 8px;}
   .flip-card{height:110px;}
+  .tri-legend{grid-template-columns:1fr;}
+  .tri-machine-map{grid-template-columns:1fr;}
 }
 @media (max-width: 400px){
   .grid.cols-3, .grid.cols-4, .roast-strip, .quick-table{grid-template-columns:1fr;}
@@ -305,6 +321,7 @@ footer.pagefoot{text-align:center;color:var(--muted);font-size:13px;padding:30px
   <a href="#s-roastweel">ROASTWEEL</a>
   <a href="#s-compare">مقارنة الآلتين</a>
   <a href="#s-stages">مراحل التحميص</a>
+  <a href="#s-triangle">مثلث التحكم</a>
   <a href="#s-roastlevels">درجات التحميص</a>
   <a href="#s-troubleshoot">استكشاف الأعطال</a>
   <a href="#s-maintenance">الصيانة والتنظيف</a>
@@ -1163,7 +1180,7 @@ footer.pagefoot{text-align:center;color:var(--muted);font-size:13px;padding:30px
     <p class="sec-sub">مقارنة سريعة تساعد فريق التشغيل على التبديل بين الآلتين دون التباس، خصوصًا أن فلسفة التحكم مختلفة بينهما.</p>
     <div class="table-scroll">
     <table class="cmp">
-      <tr><th>المعيار</th><th>MILL CITY</th><th>ROASTWEEL</th></tr>
+      <tr><th style="color: #fff;">المعيار</th><th>MILL CITY</th><th>ROASTWEEL</th></tr>
       <tr><td>نوع الاسطوانة</td><td>مزدوجة</td><td>مفردة</td></tr>
       <tr><td>وضع تحكم باب الاسطوانة</td><td>يفتح تلقائيًا عند وصول درجة الحرارة إلى القيمة المضبوطة في بداية التحميص</td><td>—</td></tr>
       <tr><td>منطق التحكم</td><td>خانات منفصلة (حرارة / غاز / مروحة / سرعة اسطوانة)</td><td>قيمتا إنذار (Alarm Value ①②) للحرارة والنار</td></tr>
@@ -1253,16 +1270,140 @@ footer.pagefoot{text-align:center;color:var(--muted);font-size:13px;padding:30px
 </section>
 
 
+<section class="block" id="s-triangle">
+  <div class="wrap">
+    <div class="sec-head"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".6" fill="currentColor" stroke="none"/></svg></span><h2>مثلث التحكم بالتحميص — الحرارة، الهواء، السرعة</h2></div>
+    <p class="sec-sub">كل قرار تحميص هو في جوهره توازن بين ثلاثة أضلاع متفاعلة معًا؛ تغيير أي ضلع بمفرده يغيّر تأثير الضلعين الآخرين. فهم هذا المثلث هو مفتاح التحكم الواعي بالتحميص بدل تكرار إعدادات ثابتة لكل دفعة.</p>
+
+    <div class="illus-frame">
+      <svg viewBox="0 0 640 460" class="tri-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="tg37" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0805c"/><stop offset="1" stop-color="#c23f1e"/></linearGradient>
+        <linearGradient id="tg38" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8fb9d6"/><stop offset="1" stop-color="#1f6690"/></linearGradient>
+        <linearGradient id="tg39" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9c7a5c"/><stop offset="1" stop-color="#5a4128"/></linearGradient>
+        <linearGradient id="tg40" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ecc65a"/><stop offset="1" stop-color="#a8801f"/></linearGradient>
+      </defs>
+      <polygon points="320,78 108,404 532,404" fill="none" stroke="var(--border)" stroke-width="3"/>
+      <line x1="320" y1="296" x2="320" y2="78" stroke="var(--gold)" stroke-width="2.5" stroke-dasharray="5 6" opacity=".8"/>
+      <line x1="320" y1="296" x2="108" y2="404" stroke="var(--gold)" stroke-width="2.5" stroke-dasharray="5 6" opacity=".8"/>
+      <line x1="320" y1="296" x2="532" y2="404" stroke="var(--gold)" stroke-width="2.5" stroke-dasharray="5 6" opacity=".8"/>
+      <g>
+          <circle cx="320" cy="296" r="52" fill="url(#tg40)"/>
+          <circle cx="320" cy="296" r="52" fill="none" stroke="#fff" stroke-width="2" opacity=".35"/>
+          <svg x="296" y="272" width="48" height="48" viewBox="0 0 24 24" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".6" fill="currentColor" stroke="none"/></svg></svg>
+        </g>
+      <g>
+          <circle cx="320" cy="78" r="52" fill="url(#tg37)"/>
+          <circle cx="320" cy="78" r="52" fill="none" stroke="#fff" stroke-width="2" opacity=".35"/>
+          <svg x="296" y="54" width="48" height="48" viewBox="0 0 24 24" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><svg viewBox="0 0 24 24"><path d="M12 2c1 3-2 4-2 7a3 3 0 0 0 6 0c0-1-.5-2-1-2.5.5 2-1 3-1 3 .3-2-1.5-3-1-5.5C13.5 3 12 2 12 2z"/><path d="M8.5 13.5c0 3.5 2 6.5 5 6.5s5-2.5 5-5.8c0-1.6-.7-2.7-1.3-3.5.2 1.8-1 2.8-1 2.8.3-2.4-1.3-3.5-1.7-5.5-2 1.7-4 3-4 5.5-.5-.3-.7-1-1-2-.6.8-1 1.8-1 2z" fill="none"/></svg></svg>
+        </g>
+      <g>
+          <circle cx="108" cy="404" r="52" fill="url(#tg39)"/>
+          <circle cx="108" cy="404" r="52" fill="none" stroke="#fff" stroke-width="2" opacity=".35"/>
+          <svg x="84" y="380" width="48" height="48" viewBox="0 0 24 24" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.5"/><path d="M5 6v12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6"/><line x1="7" y1="9" x2="17" y2="9" stroke-dasharray="1.5 1.8"/></svg></svg>
+        </g>
+      <g>
+          <circle cx="532" cy="404" r="52" fill="url(#tg38)"/>
+          <circle cx="532" cy="404" r="52" fill="none" stroke="#fff" stroke-width="2" opacity=".35"/>
+          <svg x="508" y="380" width="48" height="48" viewBox="0 0 24 24" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><path d="M12 10.4c-.9-2-.6-4.8 1-6.2 1.7-1.4 3.6.2 3 2.3-.5 1.9-2.3 3.1-4 3.9zM12 13.6c.9 2 .6 4.8-1 6.2-1.7 1.4-3.6-.2-3-2.3.5-1.9 2.3-3.1 4-3.9zM10.4 12c-2 .9-4.8.6-6.2-1-1.4-1.7.2-3.6 2.3-3 1.9.5 3.1 2.3 3.9 4zM13.6 12c2-.9 4.8-.6 6.2 1 1.4 1.7-.2 3.6-2.3 3-1.9-.5-3.1-2.3-3.9-4z"/></svg></svg>
+        </g>
+    </svg>
+      <div class="tri-legend">
+        <div class="tri-leg-item heat"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2c1 3-2 4-2 7a3 3 0 0 0 6 0c0-1-.5-2-1-2.5.5 2-1 3-1 3 .3-2-1.5-3-1-5.5C13.5 3 12 2 12 2z"/><path d="M8.5 13.5c0 3.5 2 6.5 5 6.5s5-2.5 5-5.8c0-1.6-.7-2.7-1.3-3.5.2 1.8-1 2.8-1 2.8.3-2.4-1.3-3.5-1.7-5.5-2 1.7-4 3-4 5.5-.5-.3-.7-1-1-2-.6.8-1 1.8-1 2z" fill="none"/></svg></span><b>الحرارة</b><small>Heat / Energy</small></div>
+        <div class="tri-leg-item drum"><span class="ic"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.5"/><path d="M5 6v12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6"/><line x1="7" y1="9" x2="17" y2="9" stroke-dasharray="1.5 1.8"/></svg></span><b>سرعة الاسطوانة</b><small>Drum Speed</small></div>
+        <div class="tri-leg-item air"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><path d="M12 10.4c-.9-2-.6-4.8 1-6.2 1.7-1.4 3.6.2 3 2.3-.5 1.9-2.3 3.1-4 3.9zM12 13.6c.9 2 .6 4.8-1 6.2-1.7 1.4-3.6-.2-3-2.3.5-1.9 2.3-3.1 4-3.9zM10.4 12c-2 .9-4.8.6-6.2-1-1.4-1.7.2-3.6 2.3-3 1.9.5 3.1 2.3 3.9 4zM13.6 12c2-.9 4.8-.6 6.2 1 1.4 1.7-.2 3.6-2.3 3-1.9-.5-3.1-2.3-3.9-4z"/></svg></span><b>تدفق الهواء</b><small>Airflow</small></div>
+      </div>
+      <div class="illus-caption">توازن الأضلاع الثلاثة حول محور واحد: جودة وتجانس التحميص</div>
+    </div>
+
+    <h3 style="margin-top:30px;color:var(--roast-dark);display:flex;align-items:center;gap:8px;"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16"/><circle cx="12" cy="7.5" r=".8" fill="currentColor" stroke="none"/></svg></span> شرح كل ضلع من أضلاع المثلث</h3>
+    <div style="margin-top:12px;">
+    <div class="acc-item tone-flame open">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">1</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><path d="M12 2c1 3-2 4-2 7a3 3 0 0 0 6 0c0-1-.5-2-1-2.5.5 2-1 3-1 3 .3-2-1.5-3-1-5.5C13.5 3 12 2 12 2z"/><path d="M8.5 13.5c0 3.5 2 6.5 5 6.5s5-2.5 5-5.8c0-1.6-.7-2.7-1.3-3.5.2 1.8-1 2.8-1 2.8.3-2.4-1.3-3.5-1.7-5.5-2 1.7-4 3-4 5.5-.5-.3-.7-1-1-2-.6.8-1 1.8-1 2z" fill="none"/></svg></span>
+        <span class="acc-title">الحرارة (Heat)</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p><b>المتحكم به على الآلة:</b> Gas Pressure / Temperature Control في MILL CITY، أو Alarm Value الخاصة بالنار في ROASTWEEL.</p>
+    <p><b>عند رفعها:</b> تتسارع تفاعلات التحميص (التجفيف ثم الاصفرار) وتقصر مدة الدورة، لكن يزداد خطر "الحرق السطحي" (Scorching) إن لم يقابلها انتظام كافٍ في دوران الاسطوانة وتدفق الهواء.</p>
+    <p><b>عند خفضها:</b> تحميص أبطأ وأكثر أمانًا من الحرق الموضعي، لكن الإطالة الزائدة بحرارة منخفضة تُنتج طعم "Baked" المسطّح (انظر قسم استكشاف الأعطال).</p></div></div>
+    </div>
+    <div class="acc-item tone-fan">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">2</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><path d="M12 10.4c-.9-2-.6-4.8 1-6.2 1.7-1.4 3.6.2 3 2.3-.5 1.9-2.3 3.1-4 3.9zM12 13.6c.9 2 .6 4.8-1 6.2-1.7 1.4-3.6-.2-3-2.3.5-1.9 2.3-3.1 4-3.9zM10.4 12c-2 .9-4.8.6-6.2-1-1.4-1.7.2-3.6 2.3-3 1.9.5 3.1 2.3 3.9 4zM13.6 12c2-.9 4.8-.6 6.2 1 1.4 1.7-.2 3.6-2.3 3-1.9-.5-3.1-2.3-3.9-4z"/></svg></span>
+        <span class="acc-title">تدفق الهواء (Airflow)</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p><b>المتحكم به على الآلة:</b> Exhaust Fan Speed — قابل للتدريج في MILL CITY، بينما هو تشغيل/إيقاف فقط (بدون تدرّج) في ROASTWEEL.</p>
+    <p><b>عند رفعه:</b> نقل حراري أسرع (بالحمل الهوائي) وتصريف أفضل للرطوبة والقشور، ويحسّن انتظام اللون؛ لكن رفعه كثيرًا ومبكرًا جدًا قد يُبرّد الاسطوانة ويُبطئ تفاعلات الاصفرار.</p>
+    <p><b>عند خفضه:</b> احتباس حراري وهواء راكد حول الحبة، ما يزيد خطر نكهة "مدخّنة" (Scorched) وتراكم القشور داخل غرفة التحميص.</p></div></div>
+    </div>
+    <div class="acc-item tone-brown">
+      <div class="acc-head" onclick="this.parentElement.classList.toggle('open')">
+        <span class="acc-num">3</span>
+        <span class="acc-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.5"/><path d="M5 6v12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6"/><line x1="7" y1="9" x2="17" y2="9" stroke-dasharray="1.5 1.8"/></svg></span>
+        <span class="acc-title">سرعة دوران الاسطوانة (Drum Speed)</span>
+        <span class="acc-chevron">▾</span>
+      </div>
+      <div class="acc-body"><div class="acc-inner">
+    <p><b>المتحكم به على الآلة:</b> Drum Speed — قابل للتدريج في MILL CITY، بينما هو تشغيل/إيقاف فقط في ROASTWEEL.</p>
+    <p><b>عند رفعها:</b> تقليب أفضل وتوزيع حراري أكثر انتظامًا على كل حبة، ما يقلل خطر الحرق الموضعي؛ لكن رفعها كثيرًا جدًا قد يقلل زمن تلامس الحبة بالحرارة فيبطئ التطور أو يسبب احتكاكًا زائدًا بين الحبوب.</p>
+    <p><b>عند خفضها:</b> خطر التصاق الحبوب لفترة أطول بجدار الاسطوانة الساخن، ما يسبب نقاط حرق موضعية (Tipping/Scorching)، خصوصًا في الدفعات الكبيرة أو الحبوب عالية الرطوبة.</p></div></div>
+    </div></div>
+
+    <h3 style="margin-top:30px;color:var(--roast-dark);display:flex;align-items:center;gap:8px;"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg></span> كيف تُضبط الأضلاع الثلاثة بناءً على رطوبة وكثافة الحبة؟</h3>
+    <p class="sec-sub" style="margin-top:6px;">نتيجة فحص جهاز MD-500 (الرطوبة % والكثافة g/L) هي نقطة البداية لأي قرار على المثلث — وليس إعدادًا ثابتًا يُستخدم دائمًا:</p>
+    <div class="table-scroll">
+    <table class="cmp">
+      <tr><th style="color: #fff;">خاصية الحبة الخضراء</th><th>التحدي المتوقع</th><th>التعديل المقترح على المثلث</th></tr>
+      <tr><td>رطوبة وكثافة أعلى من المعتاد (حبة "ثقيلة")</td><td>تحتاج طاقة حرارية أكبر ووقتًا أطول لطرد الرطوبة قبل الاصفرار</td><td>حرارة بداية أعلى قليلًا + هواء معتدل (غير مرتفع) للحفاظ على الطاقة داخل الاسطوانة + سرعة اسطوانة طبيعية إلى أعلى قليلًا</td></tr>
+      <tr><td>رطوبة أعلى من المعتاد وكثافة أقل (حبة "إسفنجية" رطبة)</td><td>خطر حرق السطح الخارجي قبل جفاف الداخل تمامًا</td><td>حرارة معتدلة غير مرتفعة + هواء أعلى قليلًا لتسريع طرد الرطوبة + سرعة اسطوانة عادية</td></tr>
+      <tr><td>رطوبة أقل من المعتاد (حبة "جافة خفيفة")</td><td>تتحمّص بسرعة، وقد يتجاوز التطور المطلوب دون تنبّه</td><td>حرارة أقل من المعتاد في البداية + هواء معتدل إلى منخفض قليلًا + سرعة اسطوانة أعلى قليلًا لحمايتها من طول التلامس بالحرارة</td></tr>
+      <tr><td>كثافة عالية جدًا (حبوب مرتفعات/أصناف صلبة)</td><td>تحتاج زمن تحميص أطول عمومًا مع تدرّج حراري أوضح</td><td>حرارة تصاعدية بخطوات واضحة (كما في نقطة التحول الموضّحة سابقًا) + هواء يرتفع تدريجيًا مع تقدّم التحميص + سرعة اسطوانة ثابتة معتدلة</td></tr>
+    </table>
+    </div>
+
+    <h3 style="margin-top:30px;color:var(--roast-dark);display:flex;align-items:center;gap:8px;"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 15a8 8 0 1 1 16 0"/><line x1="12" y1="15" x2="15.5" y2="10.5"/><circle cx="12" cy="15" r="1.2" fill="currentColor" stroke="none"/></svg></span> كيف يترجَم هذا على آلتَي المصنع؟</h3>
+    <div class="tri-machine-map">
+      <div class="tmm-card">
+        <h5>MILL CITY — تحكّم كامل بالمثلث</h5>
+        <ul>
+          <li>الحرارة ← Gas Pressure / Temp Control (قابلة للتدريج رقميًا)</li>
+          <li>الهواء ← Exhaust Fan Speed (قابل للتدريج رقميًا)</li>
+          <li>السرعة ← Drum Speed (قابلة للتدريج رقميًا)</li>
+        </ul>
+        <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0;">الأضلاع الثلاثة قابلة للضبط الدقيق بشكل مستقل، ما يمنح مرونة عالية للتكيّف مع كل دفعة.</p>
+      </div>
+      <div class="tmm-card">
+        <h5>ROASTWEEL — تحكّم رئيسي عبر الحرارة فقط</h5>
+        <ul>
+          <li>الحرارة ← Alarm Value / Burner (قابلة للتدريج عبر قيمتَي الإنذار)</li>
+          <li>الهواء ← Fan (تشغيل/إيقاف فقط، بدون تدرّج)</li>
+          <li>السرعة ← Drum (تشغيل/إيقاف فقط، بدون تدرّج)</li>
+        </ul>
+        <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0;">ضلعا الهواء والسرعة ثابتان أثناء التشغيل، فالتحكّم الفعلي بالمثلث يعتمد شبه كليًا على ضلع الحرارة — فرق جوهري يجب أن يعيه المحمّص عند الانتقال بين الآلتين.</p>
+      </div>
+    </div>
+
+    <div class="callout tip"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16"/><circle cx="12" cy="7.5" r=".8" fill="currentColor" stroke="none"/></svg></span><div>لاحظ الصلة المباشرة بقسم "استكشاف الأعطال" أعلاه: التحميص غير المتجانس، الطعم النيء، والطعم المحروق/المدخّن كلها في جوهرها اختلال في أحد أضلاع هذا المثلث أو أكثر، وليست أعطالًا منفصلة عن بعضها.</div></div>
+  </div>
+</section>
+
+
 <section class="block" id="s-roastlevels">
   <div class="wrap">
     <div class="sec-head"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 20C4 10 12 4 21 4c0 9-6 17-16 17H4v-1z"/><path d="M4 20c3-5 7-9 12-12"/></svg></span><h2>درجات التحميص — مرجع صناعي عام</h2></div>
     <p class="sec-sub">دليل مرئي لأربع درجات تحميص أساسية، مبني على مراجع صناعة القهوة العالمية (درجات حرارة الحبة الداخلية التقريبية)، لمساعدة المحمّص على ربط اللون بالنكهة المتوقعة والقرار بوقف التحميص.</p>
     <div class="roast-strip"><div class="roast-card">
     <svg viewBox="0 0 64 64" class="bean-icon" xmlns="http://www.w3.org/2000/svg">
-      <defs><linearGradient id="bg37" x1="0" y1="0" x2="1" y2="1">
+      <defs><linearGradient id="bg41" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0" stop-color="#d9b483"/><stop offset="1" stop-color="#a9793a"/>
       </linearGradient></defs>
-      <path d="M32 6C18 6 6 18 6 32c0 14 12 26 26 26 10 0 18-8 18-18 0-6-3-10-3-16 0-10-6-18-15-18z" fill="url(#bg37)"/>
+      <path d="M32 6C18 6 6 18 6 32c0 14 12 26 26 26 10 0 18-8 18-18 0-6-3-10-3-16 0-10-6-18-15-18z" fill="url(#bg41)"/>
       <path d="M32 12c-4 8-4 8 0 16s4 8 0 16" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".55"/>
       <ellipse cx="22" cy="20" rx="6" ry="4" fill="#ffffff" opacity=".25"/>
     </svg>
@@ -1272,10 +1413,10 @@ footer.pagefoot{text-align:center;color:var(--muted);font-size:13px;padding:30px
     <p>حموضة عالية ونكهات فاكهية وزهرية واضحة، سطح جاف بدون زيوت. يُوقَف التحميص بعد الفرقعة الأولى بقليل.</p>
   </div><div class="roast-card">
     <svg viewBox="0 0 64 64" class="bean-icon" xmlns="http://www.w3.org/2000/svg">
-      <defs><linearGradient id="bg38" x1="0" y1="0" x2="1" y2="1">
+      <defs><linearGradient id="bg42" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0" stop-color="#a9793a"/><stop offset="1" stop-color="#6b3f1d"/>
       </linearGradient></defs>
-      <path d="M32 6C18 6 6 18 6 32c0 14 12 26 26 26 10 0 18-8 18-18 0-6-3-10-3-16 0-10-6-18-15-18z" fill="url(#bg38)"/>
+      <path d="M32 6C18 6 6 18 6 32c0 14 12 26 26 26 10 0 18-8 18-18 0-6-3-10-3-16 0-10-6-18-15-18z" fill="url(#bg42)"/>
       <path d="M32 12c-4 8-4 8 0 16s4 8 0 16" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".55"/>
       <ellipse cx="22" cy="20" rx="6" ry="4" fill="#ffffff" opacity=".25"/>
     </svg>
@@ -1285,10 +1426,10 @@ footer.pagefoot{text-align:center;color:var(--muted);font-size:13px;padding:30px
     <p>توازن بين الحموضة والحلاوة والجسم — الأكثر شيوعًا للتقطير (Filter) وقهوة الإسبريسو المتوازنة.</p>
   </div><div class="roast-card">
     <svg viewBox="0 0 64 64" class="bean-icon" xmlns="http://www.w3.org/2000/svg">
-      <defs><linearGradient id="bg39" x1="0" y1="0" x2="1" y2="1">
+      <defs><linearGradient id="bg43" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0" stop-color="#6b3f1d"/><stop offset="1" stop-color="#3f2313"/>
       </linearGradient></defs>
-      <path d="M32 6C18 6 6 18 6 32c0 14 12 26 26 26 10 0 18-8 18-18 0-6-3-10-3-16 0-10-6-18-15-18z" fill="url(#bg39)"/>
+      <path d="M32 6C18 6 6 18 6 32c0 14 12 26 26 26 10 0 18-8 18-18 0-6-3-10-3-16 0-10-6-18-15-18z" fill="url(#bg43)"/>
       <path d="M32 12c-4 8-4 8 0 16s4 8 0 16" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".55"/>
       <ellipse cx="22" cy="20" rx="6" ry="4" fill="#ffffff" opacity=".25"/>
     </svg>
@@ -1298,10 +1439,10 @@ footer.pagefoot{text-align:center;color:var(--muted);font-size:13px;padding:30px
     <p>بداية ظهور نكهات الكراميل والشوكولاتة، جسم أثقل، بصيص زيت خفيف يبدأ بالظهور، يقترب من الفرقعة الثانية.</p>
   </div><div class="roast-card">
     <svg viewBox="0 0 64 64" class="bean-icon" xmlns="http://www.w3.org/2000/svg">
-      <defs><linearGradient id="bg40" x1="0" y1="0" x2="1" y2="1">
+      <defs><linearGradient id="bg44" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0" stop-color="#3f2313"/><stop offset="1" stop-color="#160c07"/>
       </linearGradient></defs>
-      <path d="M32 6C18 6 6 18 6 32c0 14 12 26 26 26 10 0 18-8 18-18 0-6-3-10-3-16 0-10-6-18-15-18z" fill="url(#bg40)"/>
+      <path d="M32 6C18 6 6 18 6 32c0 14 12 26 26 26 10 0 18-8 18-18 0-6-3-10-3-16 0-10-6-18-15-18z" fill="url(#bg44)"/>
       <path d="M32 12c-4 8-4 8 0 16s4 8 0 16" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".55"/>
       <ellipse cx="22" cy="20" rx="6" ry="4" fill="#ffffff" opacity=".25"/>
     </svg>
